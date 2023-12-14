@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.login-input {
+  background: transparent;
+  border-bottom: 2px solid black;
+  margin: auto;
+  width: 100%;
+}
+
+.input-wrapper {
+  width: 50%;
+  position: relative;
+  margin: auto;
+  margin-bottom: 7rem; 
+}
+
+.input-wrapper i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  transition: all .3s;
+  cursor: text;
+}
+
+.login-input:focus {
+  outline: none;
+  border-bottom: 2px solid #d6d6d6;
+}
+
+.login-input:focus ~ label > i {
+  bottom: 100%;
+  color: #888888;
+  font-size: 20px;
+  cursor: default;
+}
+
+.login-input:not(:placeholder-shown) ~ label > i {
+  bottom: 100%;
+  color: #888888;
+  font-size: 20px;
+  cursor: default;
+}

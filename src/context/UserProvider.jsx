@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { UserContext } from "./UserContext";
 
 export const UserProvider = ({ children }) => {
   // User object:
@@ -10,7 +11,8 @@ export const UserProvider = ({ children }) => {
   //   token: "",
   //   pfp: "",
   // }
-  const [user, setuser] = React.useState();
+  const [user, setuser] = React.useState(null);
+  const [token, setToken] = React.useState(null);
 
   const login = async (user, pass) => {
     try {
@@ -23,8 +25,19 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  React.useEffect(() => {
+    axios.defaults.headers.common["Authorization"] = token;
+  }, [token]);
+  // TODO: Recuperar token y usuario
+  React.useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setToken(token);
+    }
+  });
+
   return (
-    <UserContext.Provider value={{ user, login }}>
+    <UserContext.Provider value={{ user, login, token, setToken }}>
       {children}
     </UserContext.Provider>
   );
