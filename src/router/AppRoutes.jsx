@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { LoginPage } from "../pages/LoginPage";
+import { TeacherRoutes } from "./TeacherRoutes";
+import { StudentRoutes } from "./StudentRoutes";
 export const AppRoutes = () => {
   const { user, token } = useContext(UserContext);
 
@@ -12,14 +14,17 @@ export const AppRoutes = () => {
     <Routes>
       {logged ? (
         <>
-          {/* TODO: rutas privadas */}
-          <Route path="/dashboard" element={<h1>Dashboard</h1>} />
-          <Route path="/profile" element={<h1>Profile</h1>} />
+          {user.Tipus === "TEACHER_ROLE" ? (
+            <Route path="/*" element={<TeacherRoutes />} />
+          ) : (
+            <Route path="/*" element={<StudentRoutes />} />
+          )}
         </>
       ) : (
         <>
-          {/* TODO: Rutas públicas */}
+          {/* Tienes que logearte obligatoriamente */}
           <Route path="/login" element={<LoginPage />} />
+          {/* Si no estás logeado, te redirige al login */}
           <Route path="/*" element={<Navigate to="/login" />} />
         </>
       )}
