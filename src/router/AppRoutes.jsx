@@ -14,7 +14,7 @@ export const AppRoutes = () => {
     <Routes>
       {logged ? (
         <>
-          {user.Tipus === "TEACHER_ROLE" ? (
+          {user.tipus === "TEACHER_ROLE" ? (
             <Route path="/*" element={<TeacherRoutes />} />
           ) : (
             <Route path="/*" element={<StudentRoutes />} />
