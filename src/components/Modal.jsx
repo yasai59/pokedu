@@ -3,10 +3,10 @@ import React from "react";
 export const Modal = () => {
   return (
     <>
-      <div class="text-center">
+      <div className="text-center">
         <button
           type="button"
-          class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+          className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
           data-hs-overlay="#hs-bg-gray-on-hover-cards"
         >
           Open modal
@@ -15,22 +15,22 @@ export const Modal = () => {
 
       <div
         id="hs-bg-gray-on-hover-cards"
-        class="hs-overlay hidden w-full h-full fixed top-0 start-0 z-[60] overflow-x-hidden overflow-y-auto pointer-events-none"
+        className="hs-overlay hidden w-full h-full fixed top-0 start-0 z-[60] overflow-x-hidden overflow-y-auto pointer-events-none"
       >
-        <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-4xl sm:w-full m-3 sm:mx-auto h-[calc(100%-3.5rem)]">
-          <div class="max-h-full overflow-hidden flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
-            <div class="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700">
-              <h3 class="font-bold text-gray-800 dark:text-gray-200">
+        <div className="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-4xl sm:w-full m-3 sm:mx-auto h-[calc(100%-3.5rem)]">
+          <div className="max-h-full overflow-hidden flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
+            <div className="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700">
+              <h3 className="font-bold text-gray-800 dark:text-gray-200">
                 Plugins
               </h3>
               <button
                 type="button"
-                class="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-lg border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-transparent dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                className="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-lg border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-transparent dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 data-hs-overlay="#hs-bg-gray-on-hover-cards"
               >
-                <span class="sr-only">Close</span>
+                <span className="sr-only">Close</span>
                 <svg
-                  class="flex-shrink-0 w-4 h-4"
+                  className="flex-shrink-0 w-4 h-4"
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
@@ -47,22 +47,22 @@ export const Modal = () => {
               </button>
             </div>
 
-            <div class="p-4 overflow-y-auto">
-              <div class="sm:divide-y divide-gray-200 dark:divide-gray-700">
-                <div class="py-3 sm:py-6">
-                  <h4 class="mb-2 text-xs font-semibold uppercase text-gray-600 dark:text-gray-400">
+            <div className="p-4 overflow-y-auto">
+              <div className="sm:divide-y divide-gray-200 dark:divide-gray-700">
+                <div className="py-3 sm:py-6">
+                  <h4 className="mb-2 text-xs font-semibold uppercase text-gray-600 dark:text-gray-400">
                     Base
                   </h4>
 
-                  <div class="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+                  <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
                     <a
-                      class="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                      className="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                       href="../docs/frameworks-vuejs.html"
                     >
-                      <div class="flex">
-                        <div class="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
+                      <div className="flex">
+                        <div className="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
                           <svg
-                            class="w-5 h-5 text-gray-800 dark:text-gray-200"
+                            className="w-5 h-5 text-gray-800 dark:text-gray-200"
                             width="16"
                             height="16"
                             fill="currentColor"
@@ -72,11 +72,11 @@ export const Modal = () => {
                           </svg>
                         </div>
 
-                        <div class="grow ms-6">
-                          <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-500">
+                        <div className="grow ms-6">
+                          <h3 className="text-sm font-semibold text-blue-600 dark:text-blue-500">
                             Accordion
                           </h3>
-                          <p class="mt-1 text-sm text-gray-600 dark:text-gray-500">
+                          <p className="mt-1 text-sm text-gray-600 dark:text-gray-500">
                             A framework for building web user interfaces.
                           </p>
                         </div>
@@ -84,13 +84,13 @@ export const Modal = () => {
                     </a>
 
                     <a
-                      class="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                      className="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                       href="../docs/frameworks-vuejs.html"
                     >
-                      <div class="flex">
-                        <div class="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
+                      <div className="flex">
+                        <div className="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
                           <svg
-                            class="w-5 h-5 text-gray-800 dark:text-gray-200"
+                            className="w-5 h-5 text-gray-800 dark:text-gray-200"
                             width="16"
                             height="16"
                             viewBox="0 0 16 16"
@@ -104,11 +104,11 @@ export const Modal = () => {
                           </svg>
                         </div>
 
-                        <div class="grow ms-6">
-                          <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-500">
+                        <div className="grow ms-6">
+                          <h3 className="text-sm font-semibold text-blue-600 dark:text-blue-500">
                             Tabs
                           </h3>
-                          <p class="mt-1 text-sm text-gray-600 dark:text-gray-500">
+                          <p className="mt-1 text-sm text-gray-600 dark:text-gray-500">
                             A framework for building web user interfaces.
                           </p>
                         </div>
@@ -116,13 +116,13 @@ export const Modal = () => {
                     </a>
 
                     <a
-                      class="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                      className="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                       href="../docs/frameworks-vuejs.html"
                     >
-                      <div class="flex">
-                        <div class="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
+                      <div className="flex">
+                        <div className="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
                           <svg
-                            class="w-5 h-5 text-gray-800 dark:text-gray-200"
+                            className="w-5 h-5 text-gray-800 dark:text-gray-200"
                             width="16"
                             height="16"
                             fill="currentColor"
@@ -135,11 +135,11 @@ export const Modal = () => {
                           </svg>
                         </div>
 
-                        <div class="grow ms-6">
-                          <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-500">
+                        <div className="grow ms-6">
+                          <h3 className="text-sm font-semibold text-blue-600 dark:text-blue-500">
                             Scrollspy
                           </h3>
-                          <p class="mt-1 text-sm text-gray-600 dark:text-gray-500">
+                          <p className="mt-1 text-sm text-gray-600 dark:text-gray-500">
                             A framework for building web user interfaces.
                           </p>
                         </div>
@@ -147,13 +147,13 @@ export const Modal = () => {
                     </a>
 
                     <a
-                      class="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                      className="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                       href="../docs/frameworks-vuejs.html"
                     >
-                      <div class="flex">
-                        <div class="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
+                      <div className="flex">
+                        <div className="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
                           <svg
-                            class="w-5 h-5 text-gray-800 dark:text-gray-200"
+                            className="w-5 h-5 text-gray-800 dark:text-gray-200"
                             width="16"
                             height="16"
                             viewBox="0 0 16 16"
@@ -167,14 +167,14 @@ export const Modal = () => {
                           </svg>
                         </div>
 
-                        <div class="grow ms-6">
-                          <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-500">
+                        <div className="grow ms-6">
+                          <h3 className="text-sm font-semibold text-blue-600 dark:text-blue-500">
                             Mega Menu{" "}
-                            <span class="ms-1 inline bg-blue-50 border border-blue-300 text-blue-600 text-[.6125rem] leading-4 uppercase rounded-full py-0.5 px-2 dark:bg-blue-900/[.75] dark:border-blue-700 dark:text-blue-500">
+                            <span className="ms-1 inline bg-blue-50 border border-blue-300 text-blue-600 text-[.6125rem] leading-4 uppercase rounded-full py-0.5 px-2 dark:bg-blue-900/[.75] dark:border-blue-700 dark:text-blue-500">
                               Hot
                             </span>
                           </h3>
-                          <p class="mt-1 text-sm text-gray-600 dark:text-gray-500">
+                          <p className="mt-1 text-sm text-gray-600 dark:text-gray-500">
                             A framework for building web user interfaces.
                           </p>
                         </div>
@@ -182,13 +182,13 @@ export const Modal = () => {
                     </a>
 
                     <a
-                      class="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                      className="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                       href="../docs/frameworks-vuejs.html"
                     >
-                      <div class="flex">
-                        <div class="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
+                      <div className="flex">
+                        <div className="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
                           <svg
-                            class="w-5 h-5 text-gray-800 dark:text-gray-200"
+                            className="w-5 h-5 text-gray-800 dark:text-gray-200"
                             width="16"
                             height="16"
                             fill="currentColor"
@@ -199,11 +199,11 @@ export const Modal = () => {
                           </svg>
                         </div>
 
-                        <div class="grow ms-6">
-                          <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-500">
+                        <div className="grow ms-6">
+                          <h3 className="text-sm font-semibold text-blue-600 dark:text-blue-500">
                             Dropdown
                           </h3>
-                          <p class="mt-1 text-sm text-gray-600 dark:text-gray-500">
+                          <p className="mt-1 text-sm text-gray-600 dark:text-gray-500">
                             A framework for building web user interfaces.
                           </p>
                         </div>
@@ -212,20 +212,20 @@ export const Modal = () => {
                   </div>
                 </div>
 
-                <div class="py-3 sm:py-6">
-                  <h4 class="mb-2 text-xs font-semibold uppercase text-gray-600 dark:text-gray-400">
+                <div className="py-3 sm:py-6">
+                  <h4 className="mb-2 text-xs font-semibold uppercase text-gray-600 dark:text-gray-400">
                     Advanced
                   </h4>
 
-                  <div class="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+                  <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
                     <a
-                      class="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                      className="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                       href="../docs/frameworks-vuejs.html"
                     >
-                      <div class="flex">
-                        <div class="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
+                      <div className="flex">
+                        <div className="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
                           <svg
-                            class="w-5 h-5 text-gray-800 dark:text-gray-200"
+                            className="w-5 h-5 text-gray-800 dark:text-gray-200"
                             width="16"
                             height="16"
                             fill="currentColor"
@@ -236,11 +236,11 @@ export const Modal = () => {
                           </svg>
                         </div>
 
-                        <div class="grow ms-6">
-                          <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-500">
+                        <div className="grow ms-6">
+                          <h3 className="text-sm font-semibold text-blue-600 dark:text-blue-500">
                             Modal
                           </h3>
-                          <p class="mt-1 text-sm text-gray-600 dark:text-gray-500">
+                          <p className="mt-1 text-sm text-gray-600 dark:text-gray-500">
                             A framework for building web user interfaces.
                           </p>
                         </div>
@@ -248,13 +248,13 @@ export const Modal = () => {
                     </a>
 
                     <a
-                      class="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                      className="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                       href="../docs/frameworks-vuejs.html"
                     >
-                      <div class="flex">
-                        <div class="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
+                      <div className="flex">
+                        <div className="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
                           <svg
-                            class="w-5 h-5 text-gray-800 dark:text-gray-200"
+                            className="w-5 h-5 text-gray-800 dark:text-gray-200"
                             width="16"
                             height="16"
                             fill="currentColor"
@@ -265,11 +265,11 @@ export const Modal = () => {
                           </svg>
                         </div>
 
-                        <div class="grow ms-6">
-                          <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-500">
+                        <div className="grow ms-6">
+                          <h3 className="text-sm font-semibold text-blue-600 dark:text-blue-500">
                             Offcanvas
                           </h3>
-                          <p class="mt-1 text-sm text-gray-600 dark:text-gray-500">
+                          <p className="mt-1 text-sm text-gray-600 dark:text-gray-500">
                             A framework for building web user interfaces.
                           </p>
                         </div>
@@ -277,13 +277,13 @@ export const Modal = () => {
                     </a>
 
                     <a
-                      class="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                      className="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                       href="../docs/frameworks-vuejs.html"
                     >
-                      <div class="flex">
-                        <div class="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
+                      <div className="flex">
+                        <div className="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
                           <svg
-                            class="w-5 h-5 text-gray-800 dark:text-gray-200"
+                            className="w-5 h-5 text-gray-800 dark:text-gray-200"
                             width="16"
                             height="16"
                             fill="currentColor"
@@ -294,14 +294,14 @@ export const Modal = () => {
                           </svg>
                         </div>
 
-                        <div class="grow ms-6">
-                          <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-500">
+                        <div className="grow ms-6">
+                          <h3 className="text-sm font-semibold text-blue-600 dark:text-blue-500">
                             Sidebar{" "}
-                            <span class="ms-1 inline bg-blue-50 border border-blue-300 text-blue-600 text-[.6125rem] leading-4 uppercase rounded-full py-0.5 px-2 dark:bg-blue-900/[.75] dark:border-blue-700 dark:text-blue-500">
+                            <span className="ms-1 inline bg-blue-50 border border-blue-300 text-blue-600 text-[.6125rem] leading-4 uppercase rounded-full py-0.5 px-2 dark:bg-blue-900/[.75] dark:border-blue-700 dark:text-blue-500">
                               New
                             </span>
                           </h3>
-                          <p class="mt-1 text-sm text-gray-600 dark:text-gray-500">
+                          <p className="mt-1 text-sm text-gray-600 dark:text-gray-500">
                             A framework for building web user interfaces.
                           </p>
                         </div>
@@ -309,13 +309,13 @@ export const Modal = () => {
                     </a>
 
                     <a
-                      class="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                      className="bg-white p-4 transition duration-300 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-white/[.05] dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                       href="../docs/frameworks-vuejs.html"
                     >
-                      <div class="flex">
-                        <div class="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
+                      <div className="flex">
+                        <div className="mt-1.5 flex justify-center flex-shrink-0 rounded-s-xl">
                           <svg
-                            class="w-5 h-5 text-gray-800 dark:text-gray-200"
+                            className="w-5 h-5 text-gray-800 dark:text-gray-200"
                             width="16"
                             height="16"
                             fill="currentColor"
@@ -325,11 +325,11 @@ export const Modal = () => {
                           </svg>
                         </div>
 
-                        <div class="grow ms-6">
-                          <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-500">
+                        <div className="grow ms-6">
+                          <h3 className="text-sm font-semibold text-blue-600 dark:text-blue-500">
                             Popover
                           </h3>
-                          <p class="mt-1 text-sm text-gray-600 dark:text-gray-500">
+                          <p className="mt-1 text-sm text-gray-600 dark:text-gray-500">
                             A framework for building web user interfaces.
                           </p>
                         </div>
@@ -337,10 +337,10 @@ export const Modal = () => {
                     </a>
                   </div>
 
-                  <p class="mt-4 text-xs text-gray-500">
+                  <p className="mt-4 text-xs text-gray-500">
                     Completely unstyled, fully accessible UI{" "}
                     <a
-                      class="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline font-medium"
+                      className="inline-flex items-center gap-x-1.5 text-blue-600 decoration-2 hover:underline font-medium"
                       href="../plugins.html"
                     >
                       plugins
@@ -352,14 +352,14 @@ export const Modal = () => {
               </div>
             </div>
 
-            <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-gray-700">
+            <div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-gray-700">
               <a
-                class="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                className="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 href="../docs/index.html"
               >
                 Installation Guide
                 <svg
-                  class="flex-shrink-0 w-4 h-4"
+                  className="flex-shrink-0 w-4 h-4"
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"

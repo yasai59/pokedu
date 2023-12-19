@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Modal } from "../../components/Modal";
 
 export const Dashboard = () => {
   return (
@@ -29,6 +30,7 @@ export const Dashboard = () => {
         >
           + Nuevo
         </Link>
+        <Modal />
       </h2>
     </div>
   );
