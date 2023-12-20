@@ -11,8 +11,10 @@ export const UserProvider = ({ children }) => {
   //   token: "",
   //   pfp: "",
   // }
-  const [user, setUser] = React.useState(null);
-  const [token, setToken] = React.useState(null);
+  const [user, setUser] = React.useState(localStorage.getItem("user") || null);
+  const [token, setToken] = React.useState(
+    localStorage.getItem("token") || null
+  );
 
   const login = async (username, pass) => {
     console.log(username, pass);

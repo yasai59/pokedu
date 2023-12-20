@@ -38,7 +38,10 @@ export const Dashboard = () => {
       <div>
         <h2 className="text-4xl">Alumnes</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mt-20">
-          <Link to="/login" className="text-3xl text-center p-10 bg-gray-400">
+          <Link
+            to="/students"
+            className="text-3xl text-center p-10 bg-gray-400"
+          >
             Gestionar
           </Link>
           <Link to="/login" className="text-3xl text-center p-10 bg-gray-400">
