@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
-export const Modal = () => {
+export const Modal = ({ children, title, btn, className }) => {
+  const modalRef = useRef(null);
+  const handleClick = () => {
+    modalRef.current.showModal();
+  };
+  useEffect(() => {
+    document.addEventListener("closeModal", () => {
+      modalRef.current.close();
+    });
+  }, []);
+
   return (
     <>
-      <button
-        className="btn"
-        onClick={() => document.getElementById("my_modal_1").showModal()}
-      >
-        open modal
+      <button className={`btn ${className}`} onClick={handleClick}>
+        {btn}
       </button>
-      <dialog id="my_modal_1" className="modal">
+      <dialog ref={modalRef} className="modal">
         <div className="modal-box">
-          <h3 className="font-bold text-xl">Hello!</h3>
-          <p className="py-4 text-sm">
-            Press ESC key or click the button below to close
-          </p>
+          <h3 className="font-bold text-xl pb-10">{title}</h3>
+          <div className="modal-body">{children}</div>
           <div className="modal-action">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}

@@ -43,7 +43,6 @@ export const UserProvider = ({ children }) => {
   React.useEffect(() => {
     axios.defaults.headers.common["Authorization"] = token;
   }, [token]);
-  // TODO: Recuperar token y usuario
   React.useEffect(() => {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
