@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import { Modal } from "../../components/Modal";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useState } from "react";
+import { useEffect } from "react";
+import { Proyecto } from "../../components/proyecto";
 
 export const Dashboard = () => {
+  const [proyectos, setProyectos] = useState([]);
+  const [update, setUpdate] = useState(false);
+
   const handleAddProject = (e) => {
     e.preventDefault();
     const titulo = e.target.elements[0].value;
@@ -18,6 +24,7 @@ export const Dashboard = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        setUpdate(!update);
       })
       .catch(() => {
         Swal.fire({
@@ -32,6 +39,18 @@ export const Dashboard = () => {
     // dispatch the event to close the modal
     document.dispatchEvent(new CustomEvent("closeModal"));
   };
+
+  useEffect(() => {
+    axios
+      .get("/api/projects")
+      .then((res) => {
+        setProyectos(res.data.msg);
+      })
+      .catch((err) => {
+        // TODO: handle error when loading projects
+        console.log(err);
+      });
+  }, [update]);
 
   return (
     <div className="container m-auto pt-10">
@@ -70,6 +89,17 @@ export const Dashboard = () => {
           </form>
         </Modal>
       </h2>
+      <div className="grid gap-10 grid-cols-4 items-center pt-10">
+        {proyectos.map((proyecto) => {
+          return (
+            <Proyecto
+              id={proyecto.id}
+              nombre={proyecto.nom}
+              key={proyecto.id}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
