@@ -3,14 +3,6 @@ import React from "react";
 import { UserContext } from "./UserContext";
 
 export const UserProvider = ({ children }) => {
-  // User object:
-  // {
-  //   name: "",
-  //   role: "",
-  //   username: "",
-  //   token: "",
-  //   pfp: "",
-  // }
   const [user, setUser] = React.useState(localStorage.getItem("user") || null);
   const [token, setToken] = React.useState(
     localStorage.getItem("token") || null

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
 import { Modal } from "../../components/Modal";
+import { Link } from "react-router-dom";
 
 export const Students = () => {
   const [students, setStudents] = useState([]);
@@ -13,13 +14,18 @@ export const Students = () => {
     const name = e.target.elements[0].value;
     const username = e.target.elements[1].value;
     const password = e.target.elements[2].value;
-    const photo = e.target.elements[3].files[0];
 
     // clear the form
     e.target.elements[0].value = "";
     e.target.elements[1].value = "";
     e.target.elements[2].value = "";
-    e.target.elements[3].value = "";
+
+    axios.post("/api/users", {
+      userUser: username,
+      userPass: password,
+      userName: name,
+      userType: "STUDENT_ROLE",
+    });
 
     document.dispatchEvent(new CustomEvent("closeModal"));
   };
@@ -75,10 +81,6 @@ export const Students = () => {
                 id="password"
                 className="ms-5 input input-bordered"
               />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="photo">Foto</label>
-              <input type="file" name="photo" id="photo" />
             </div>
             <button type="submit" className="btn btn-primary">
               Añadir

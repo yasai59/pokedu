@@ -5,7 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Proyecto } from "../../components/proyecto";
+import { Proyecto } from "../../components/Proyecto.jsx";
 
 export const Dashboard = () => {
   const [proyectos, setProyectos] = useState([]);
