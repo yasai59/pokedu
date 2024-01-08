@@ -18,6 +18,8 @@
     "sweetalert2": "^11.10.1"
   },
   "devDependencies": {
+    "@egoist/tailwindcss-icons": "^1.7.2",
+    "@iconify/json": "^2.2.166",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",

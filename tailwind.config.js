@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import { iconsPlugin, getIconCollections } from "@egoist/tailwindcss-icons";
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx}"],
   theme: {
@@ -17,7 +19,17 @@ export default {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui"),
+    iconsPlugin({
+      collections: getIconCollections([
+        "mdi",
+        "lucide",
+        "bxs",
+        "material-symbols",
+      ]),
+    }),
+  ],
   daisyui: {
     themes: ["light"],
   },

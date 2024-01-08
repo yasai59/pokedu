@@ -13,7 +13,7 @@ export const Modal = ({ children, title, btn, className }) => {
 
   return (
     <>
-      <button className={`btn ${className}`} onClick={handleClick}>
+      <button className={`${className}`} onClick={handleClick}>
         {btn}
       </button>
       <dialog ref={modalRef} className="modal">
