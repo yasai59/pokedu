@@ -9,7 +9,6 @@ export const UserProvider = ({ children }) => {
   );
 
   const login = async (username, pass) => {
-    console.log(username, pass);
     try {
       const res = await axios.post("/api/users/login", {
         userName: username,

@@ -111,7 +111,6 @@ export const Dashboard = () => {
       });
 
     axios.get("/api/users/").then((res) => {
-      console.log(res.data.msg);
       exportTextArea.current.value = JSON.stringify(res.data.msg);
     });
   }, [update]);

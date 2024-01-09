@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 
 export const NavBar = () => {
   const { user } = useContext(UserContext);
-  console.log(user);
 
   return (
     <nav className="bg-primary p-5 border-b-2 border-black">
