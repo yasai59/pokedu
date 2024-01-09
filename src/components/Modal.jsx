@@ -2,12 +2,14 @@ import React, { useEffect, useRef } from "react";
 
 export const Modal = ({ children, title, btn, className }) => {
   const modalRef = useRef(null);
+  const [open, setOpen] = React.useState(false);
   const handleClick = () => {
+    setOpen(true);
     modalRef.current.showModal();
   };
   useEffect(() => {
     document.addEventListener("closeModal", () => {
-      modalRef.current.close();
+      modalRef.current?.close();
     });
   }, []);
 

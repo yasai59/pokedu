@@ -175,7 +175,7 @@ export const Dashboard = () => {
             title={"Importar usuarios"}
           >
             <form onSubmit={handleImportUsers}>
-              <textarea class="textarea textarea-primary resize-none w-full h-96"></textarea>
+              <textarea className="textarea textarea-primary resize-none w-full h-96"></textarea>
               <button className="btn btn-primary mt-5">
                 Importar <span className="i-material-symbols-save"></span>
               </button>
@@ -187,7 +187,7 @@ export const Dashboard = () => {
             btn={"Exportar"}
           >
             <textarea
-              class="textarea textarea-primary resize-none w-full h-96"
+              className="textarea textarea-primary resize-none w-full h-96"
               ref={exportTextArea}
               readOnly
             ></textarea>
