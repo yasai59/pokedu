@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
+import  "../fonts.css";
 
 export const LoginPage = () => {
   const { login } = useContext(UserContext);
@@ -10,7 +11,7 @@ export const LoginPage = () => {
     login(username.value, password.value);
   };
 
-  const randomPokemon = Math.floor(Math.random() * 17 + 1);
+  const randomPokemon = (Math.floor(Math.random() * 536) + 1).toString().padStart(3, '0');
 
   return (
     <section
@@ -19,30 +20,31 @@ export const LoginPage = () => {
         backgroundImage: "url('/assets/login-background.png')",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
+        
       }}
     >
       <div className="row-start-3 md:row-start-1">
-        <h1 className="hidden md:inline-block text-[3rem] text-center font-extrabold text-emerald-200">
-          Pokédu - Jaume Viladoms
-        </h1>
+        
         <div className="md:h-[50rem]">
+        <h1 className="hidden md:inline-block text-[4rem] text-center font-extrabold font-nds ps-[100px] mb-[100px] ">
+          Pokédu - Jaume Viladoms
+        </h1 >
           <img
             src={`/gifs-pokedu/${randomPokemon}.gif`}
-            className="w-[600px] m-auto"
+            className="w-[700px] h-[450px] md:ps-[180px]  "
             style={{ imageRendering: "pixelated" }}
           />
         </div>
       </div>
-      <h1 className="md:hidden text-4xl text-center font-bold">
+      <h1 className="md:hidden text-4xl text-center font-bold font-nds mt-5">
         Pokédu - Jaume Viladoms
       </h1>
       <form
-        className="bg-light2 h-[40rem] rounded-xl border-2 border-black w-8/12 mt-10"
+        className="bg-light2  mt-[20px] h-[30rem] md:h-[35rem] rounded-xl border-2 border-black w-8/12 "
         style={{ boxShadow: "0 0 20px black" }}
         onSubmit={handleSubmit}
       >
-        <h2 className="text-4xl text-center mt-20 mb-20">Login</h2>
-        <div className="flex flex-col text-4xl">
+        <div className="flex flex-col text-4xl mt-[20%]">
           <div className="input-wrapper">
             <input
               type="text"
@@ -52,7 +54,7 @@ export const LoginPage = () => {
               id="login-username"
             />
             <label htmlFor="login-username">
-              <i className="text-xl md:text-4xl">Username</i>
+              <i className="text-xl md:text-4xl font-aldrich">Username</i>
             </label>
           </div>
           <div className="input-wrapper">
@@ -64,10 +66,10 @@ export const LoginPage = () => {
               id="login-password"
             />
             <label htmlFor="login-password">
-              <i className="text-xl md:text-4xl">Password</i>
+              <i className="text-xl md:text-4xl font-aldrich">Password</i>
             </label>
           </div>
-          <button className="rounded-3xl bg-success m-auto p-5">Login</button>
+          <button className="rounded-3xl bg-success m-auto p-3 font-nds font-bold md:w-[300px] w-[200px] text-[1.2em]">Login</button>
         </div>
       </form>
     </section>

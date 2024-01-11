@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Aldrich';
+    src: url('/fonts/Aldrich/Aldrich-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'NDS_BIOS';
+    src: url('/fonts/NDS_BIOS/ndsbios_memesbruh03.ttf');
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('/fonts/NotoSans/NotoSans-VariableFont_wdth,wght.ttf');
+}
+
+.font-aldrich {
+    font-family: 'Aldrich', sans-serif;
+}
+
+.font-nds {
+    font-family: 'NDS_BIOS', sans-serif;
+}
+
+.font-noto{
+    font-family: 'Noto Sans', sans-serif;
+}
