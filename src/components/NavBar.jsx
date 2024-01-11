@@ -4,7 +4,7 @@ import { UserContext } from "../context/UserContext";
 import { NavLink } from "react-router-dom";
 
 export const NavBar = () => {
-  const { user } = useContext(UserContext);
+  const { user, logout } = useContext(UserContext);
 
   return (
     <nav className="bg-primary p-5 border-b-2 border-black">
@@ -21,6 +21,11 @@ export const NavBar = () => {
           </li>
           <li className="text-white">
             <NavLink to="/students">Alumnos</NavLink>
+          </li>
+          <li className="text-white">
+            <NavLink to="/login" onClick={logout}>
+              Cerrar sesión
+            </NavLink>
           </li>
         </ul>
       </div>
