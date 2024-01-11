@@ -21,6 +21,11 @@ export const Project = () => {
     nom: "Cargando...",
     items: [],
   });
+
+  const [user, setUser] = React.useState("");
+
+  const [alumnos, setAlumnos] = React.useState([]);
+
   useEffect(() => {
     axios.get(`/api/projects/project?projectId=${id}`).then((res) => {
       setProject((prev) => ({ ...prev, nom: res.data.msg.nom }));
@@ -28,6 +33,10 @@ export const Project = () => {
 
     axios.get("/api/items/itemsproject?projectId=" + id).then((res) => {
       setProject((prev) => ({ ...prev, items: res.data.msg }));
+    });
+
+    axios.get("/api/users/").then((res) => {
+      setAlumnos(res.data.msg);
     });
   }, []);
 
@@ -58,11 +67,17 @@ export const Project = () => {
       </h2>
       <h2 className="text-4xl flex items-center mt-5">
         Alumnos{" "}
-        <Modal
-          btn="+ Nuevo"
-          className={"btn ms-5"}
-          title="Añadir alumno"
-        ></Modal>
+        <Modal btn="+ Nuevo" className={"btn ms-5"} title="Añadir alumno">
+          <div>
+            <input
+              type="text"
+              value={user}
+              onChange={(e) => setUser(e.target.value)}
+              className="input input-bordered w-full"
+              placeholder="Buscar alumno 🔍︎"
+            />
+          </div>
+        </Modal>
       </h2>
     </div>
   );
