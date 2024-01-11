@@ -100,6 +100,12 @@ export const Dashboard = () => {
     document.dispatchEvent(new CustomEvent("closeModal"));
   };
 
+  const handleAddSkill = (e) => {
+    e.preventDefault();
+    const skill = e.target.elements[0].value;
+    // itemName, itemPercentatge, itemFoto
+  };
+
   useEffect(() => {
     axios
       .get("/api/projects")
@@ -228,6 +234,22 @@ export const Dashboard = () => {
           );
         })}
       </div>
+      <h2 className="text-4xl mt-16 flex items-center">
+        Skills
+        <Modal title="Añadir Skill" btn="+ Nuevo" className="btn ms-10">
+          <form onSubmit={handleAddSkill}>
+            <div className="flex justify-between">
+              <input
+                type="text"
+                placeholder="Introduce el nombre del skill"
+                className="input input-bordered w-full max-w-xs"
+              />
+              <input type="number" placeholder="Introduce el " />
+              <button className="btn ms-5">Añadir</button>
+            </div>
+          </form>
+        </Modal>
+      </h2>
     </div>
   );
 };

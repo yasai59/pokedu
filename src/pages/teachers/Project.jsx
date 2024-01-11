@@ -4,26 +4,50 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Modal } from "../../components/Modal";
 
+const Skill = ({ item }) => {
+  return (
+    <div className="grid grid-cols-3 w-52 bg-slate-400 h-10 place-items-center p-1">
+      <div className="foto bg-black rounded-full h-full aspect-square"></div>
+      <div className="nombre">{item.nom}</div>
+      <div className="porcentaje">{item.percentatge}%</div>
+    </div>
+  );
+};
+
 export const Project = () => {
   const { id } = useParams("id");
-  const [project, setProject] = React.useState({ id, nom: "Cargando..." });
+  const [project, setProject] = React.useState({
+    id,
+    nom: "Cargando...",
+    items: [],
+  });
   useEffect(() => {
     axios.get(`/api/projects/project?projectId=${id}`).then((res) => {
-      console.log(res.data);
-      setProject((prev) => (prev.nom = res.data.msg));
+      setProject((prev) => ({ ...prev, nom: res.data.msg.nom }));
+    });
+
+    axios.get("/api/items/itemsproject?projectId=" + id).then((res) => {
+      setProject((prev) => ({ ...prev, items: res.data.msg }));
     });
   }, []);
+
+  console.log(project);
 
   return (
     <div className="container m-auto">
       <h1 className="text-[5rem] font-bold text-center mt-5">
-        <span contentEditable>{project.nom}</span>
+        <span>{project.nom}</span>
         <span className="i-mdi-pencil text-3xl text-gray-600"></span>
       </h1>
       <h2 className="text-4xl flex items-center mt-5">
         Skills{" "}
         <Modal btn="+ Nuevo" className={"btn ms-5"} title="Crear skill"></Modal>
       </h2>
+      <section className="grid grid-cols-4 place-items-center mt-10">
+        {project.items.map((item) => (
+          <Skill item={item} key={item.id} />
+        ))}
+      </section>
       <h2 className="text-4xl flex items-center mt-5">
         Actividades{" "}
         <Modal
