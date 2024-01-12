@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: 'Noto Sans';
-    src: url('/fonts/NotoSans/NotoSans-VariableFont_wdth,wght.ttf');
+    src: url('/fonts/Noto_Sans/NotoSans-VariableFont.ttf');
 }
 
 .font-aldrich {
@@ -23,4 +23,8 @@
 
 .font-noto{
     font-family: 'Noto Sans', sans-serif;
+}
+
+body{
+    background-color: #f6f4f7;
 }

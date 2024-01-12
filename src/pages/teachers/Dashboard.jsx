@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Proyecto } from "../../components/Proyecto.jsx";
+import  "../../fonts.css";
 
 export const Dashboard = () => {
   const [proyectos, setProyectos] = useState([]);
@@ -124,17 +125,17 @@ export const Dashboard = () => {
   return (
     <div className="container m-auto pt-10">
       <div>
-        <h2 className="text-4xl">Alumnes</h2>
+        <h2 className="text-4xl font-nds font-bold">Alumnes</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mt-20">
           <Link
             to="/students"
-            className="text-3xl text-center p-10 bg-gray-400"
+            className="text-3xl text-center p-4 bg-[#bd628b] font-aldrich rounded-[25px]"
           >
             Gestionar
           </Link>
           <Modal
             btn={"Crear"}
-            className="text-3xl text-center p-10 bg-gray-400"
+            className="text-3xl text-center p-4 bg-[#c5a400] font-aldrich rounded-[25px]"
             title={"Crear Alumno"}
           >
             <form
@@ -175,7 +176,7 @@ export const Dashboard = () => {
             </form>
           </Modal>
           <Modal
-            className="text-3xl text-center p-10 bg-gray-400"
+            className="text-3xl text-center p-4 bg-[#bd628b]  font-aldrich rounded-[25px]"
             btn={"Importar"}
             title={"Importar usuarios"}
           >
@@ -187,7 +188,7 @@ export const Dashboard = () => {
             </form>
           </Modal>
           <Modal
-            className="text-3xl text-center p-10 bg-gray-400"
+            className="text-3xl text-center p-4 bg-[#c5a400] font-aldrich rounded-[25px]"
             title={"Exportar usuarios"}
             btn={"Exportar"}
           >
@@ -208,7 +209,7 @@ export const Dashboard = () => {
           </Modal>
         </div>
       </div>
-      <h2 className="text-4xl mt-16 flex items-center">
+      <h2 className="text-4xl mt-16 flex items-center font-nds font-bold">
         Proyectos
         <Modal title="Añadir Proyecto" btn="+ Nuevo" className="btn ms-10">
           <form onSubmit={handleAddProject}>
@@ -234,7 +235,7 @@ export const Dashboard = () => {
           );
         })}
       </div>
-      <h2 className="text-4xl mt-16 flex items-center">
+      <h2 className="text-4xl mt-16 flex items-center font-nds font-bold">
         Skills
         <Modal title="Añadir Skill" btn="+ Nuevo" className="btn ms-10">
           <form onSubmit={handleAddSkill}>
