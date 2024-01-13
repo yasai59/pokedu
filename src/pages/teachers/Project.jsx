@@ -3,16 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Modal } from "../../components/Modal";
-
-const Skill = ({ item }) => {
-  return (
-    <div className="grid grid-cols-3 w-52 bg-slate-400 h-10 place-items-center p-1">
-      <div className="foto bg-black rounded-full h-full aspect-square"></div>
-      <div className="nombre">{item.nom}</div>
-      <div className="porcentaje">{item.percentatge}%</div>
-    </div>
-  );
-};
+import { Skill } from "../../components/Skill";
 
 export const Project = () => {
   const { id } = useParams("id");

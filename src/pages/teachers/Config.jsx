@@ -9,8 +9,6 @@ export const Config = () => {
 
   const [photo, setPhoto] = React.useState(Number(user.foto.split(".")[0]) - 1);
 
-  console.log(user.foto);
-
   const handleChangePhoto = (e) => {
     changePhoto(`${(photo + 1)?.toString().padStart(4, "0")}.png`);
   };

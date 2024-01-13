@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { Proyecto } from "../../components/Proyecto.jsx";
 import "../../fonts.css";
 import { PhotoPicker } from "../../components/PhotoPicker.jsx";
+import { Skill } from "../../components/Skill.jsx";
 
 export const Dashboard = () => {
   const [proyectos, setProyectos] = useState([]);
@@ -103,11 +104,37 @@ export const Dashboard = () => {
   };
 
   const [photo, setPhoto] = useState(0);
+  const [skills, setSkills] = useState([]);
 
   const handleAddSkill = (e) => {
     e.preventDefault();
     const skill = e.target.elements[0].value;
     const percentatge = e.target.elements[1].value;
+    const foto = photo.toString().padStart(4, "0") + ".png";
+
+    axios
+      .post("/api/items", {
+        itemName: skill,
+        itemPercentatge: percentatge,
+        itemFoto: foto,
+      })
+      .then((res) => {
+        setUpdate(!update);
+        Swal.fire({
+          icon: "success",
+          title: "Skill añadida",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        // clear the form
+        e.target.elements[0].value = "";
+        e.target.elements[1].value = "";
+        setPhoto(0);
+      });
+
+    document.dispatchEvent(new CustomEvent("closeModal"));
+
     // itemName, itemPercentatge, itemFoto
   };
 
@@ -123,6 +150,10 @@ export const Dashboard = () => {
 
     axios.get("/api/users/").then((res) => {
       exportTextArea.current.value = JSON.stringify(res.data.msg);
+    });
+
+    axios.get("/api/items").then((res) => {
+      setSkills(res.data.msg);
     });
   }, [update]);
 
@@ -252,14 +283,19 @@ export const Dashboard = () => {
               <input
                 type="number"
                 placeholder="Introduce el porcentaje"
-                className="input input-bordered w-full max-w-xs ms-5"
+                className="input input-bordered w-full max-w-xs ms-5 mb-5"
               />
             </div>
-            <PhotoPicker />
+            <PhotoPicker photo={photo} setPhoto={setPhoto} className={"h-52"} />
             <button className="btn mt-5">Añadir</button>
           </form>
         </Modal>
       </h2>
+      <div className="grid grid-cols-4 gap-y-10">
+        {skills.map((skill) => (
+          <Skill item={skill} key={skill.id} />
+        ))}
+      </div>
     </div>
   );
 };
