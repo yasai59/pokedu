@@ -2,6 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+body{
+  background-color: #f1ecec;
+
+}
+
+body label{
+  font-family: 'Noto Sans';
+}
+
+body h1, body h2, body h3, button{
+  font-family: 'NDS_BIOS';
+}
+
+.btn-primary{
+  background-color: #5abd8b;
+  color: black;
+  border: solid black 0px;
+}
+
+.textarea-primary{
+  border: solid black 1px;
+}
+
+.btn{
+  border: solid black 1px;
+}
+.btn:hover{
+  background-color: #5abd8b;
+  border: solid black 1px;
+}
+
 .login-input {
   background: transparent;
   border-bottom: 2px solid black;

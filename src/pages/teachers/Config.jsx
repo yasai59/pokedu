@@ -14,7 +14,7 @@ export const Config = () => {
   };
 
   return (
-    <div className="container m-auto">
+    <div className="container m-auto h-screen">
       <h1 className="text-4xl text-center mt-5">Configuración</h1>
       <div>
         <h3 className="text-2xl">Foto de perfil</h3>
@@ -23,10 +23,10 @@ export const Config = () => {
             <PhotoPicker
               photo={photo}
               setPhoto={setPhoto}
-              className="w-full h-[21rem] bg-white border rounded-lg p-2"
+              className="w-full h-[21rem]  border rounded-lg p-2"
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             <h2 className="text-center mb-10 text-4xl font-bold">
               Vista Previa
             </h2>
@@ -64,6 +64,7 @@ export const Config = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

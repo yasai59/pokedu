@@ -160,17 +160,17 @@ export const Dashboard = () => {
   return (
     <div className="container m-auto pt-10">
       <div>
-        <h2 className="text-4xl font-nds font-bold">Alumnes</h2>
+        <h2 className="text-5xl font-nds font-bold ">Alumnes</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mt-20">
           <Link
             to="/students"
-            className="text-3xl text-center p-4 bg-[#bd628b] font-aldrich rounded-[25px]"
+            className="text-3xl text-center p-4 bg-[#bd628b] font-aldrich rounded-[15px] "
           >
             Gestionar
           </Link>
           <Modal
             btn={"Crear"}
-            className="text-3xl text-center p-4 bg-[#c5a400] font-aldrich rounded-[25px]"
+            className="text-3xl text-center p-4 bg-[#c5a400] font-aldrich rounded-[15px]"
             title={"Crear Alumno"}
           >
             <form
@@ -211,7 +211,7 @@ export const Dashboard = () => {
             </form>
           </Modal>
           <Modal
-            className="text-3xl text-center p-4 bg-[#bd628b]  font-aldrich rounded-[25px]"
+            className="text-3xl text-center p-4 bg-[#bd628b]  font-aldrich rounded-[15px]"
             btn={"Importar"}
             title={"Importar usuarios"}
           >
@@ -223,7 +223,7 @@ export const Dashboard = () => {
             </form>
           </Modal>
           <Modal
-            className="text-3xl text-center p-4 bg-[#c5a400] font-aldrich rounded-[25px]"
+            className="text-3xl text-center p-4 bg-[#c5a400] font-aldrich rounded-[15px]"
             title={"Exportar usuarios"}
             btn={"Exportar"}
           >
@@ -244,9 +244,9 @@ export const Dashboard = () => {
           </Modal>
         </div>
       </div>
-      <h2 className="text-4xl mt-16 flex items-center font-nds font-bold">
+      <h2 className="text-5xl mt-16 flex items-center font-nds font-bold">
         Proyectos
-        <Modal title="Añadir Proyecto" btn="+ Nuevo" className="btn ms-10">
+        <Modal title="Añadir Proyecto" btn="+ Nuevo" className="btn ms-10 bg-[#5abd8b]">
           <form onSubmit={handleAddProject}>
             <div className="flex justify-between">
               <input
@@ -270,9 +270,9 @@ export const Dashboard = () => {
           );
         })}
       </div>
-      <h2 className="text-4xl mt-16 flex items-center font-nds font-bold">
+      <h2 className="text-5xl mt-16 flex items-center font-nds font-bold">
         Skills
-        <Modal title="Añadir Skill" btn="+ Nuevo" className="btn ms-10">
+        <Modal title="Añadir Skill" btn="+ Nuevo" className="btn ms-10 bg-[#5abd8b]">
           <form onSubmit={handleAddSkill}>
             <div className="flex justify-between">
               <input
@@ -291,7 +291,7 @@ export const Dashboard = () => {
           </form>
         </Modal>
       </h2>
-      <div className="grid grid-cols-4 gap-y-10">
+      <div className="grid grid-cols-5 gap-y-10 w-[80%] mx-auto mt-[20px] pb-[20px]" >
         {skills.map((skill) => (
           <Skill item={skill} key={skill.id} />
         ))}

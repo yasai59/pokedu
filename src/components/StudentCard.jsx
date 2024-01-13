@@ -32,10 +32,11 @@ export const StudentCard = ({ student, setUpdate }) => {
 
   return (
     <Modal
+      foto={student.foto}
       btn={student.nom}
       title={student.nom}
       key={student.id}
-      className="btn btn-outline"
+      className="btn btn-outline "
     >
       <form
         className="[&>div]:flex [&>div]:justify-between [&>div]:items-center"

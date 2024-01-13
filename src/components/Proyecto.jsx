@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export const Proyecto = ({ id, nombre }) => {
@@ -14,8 +13,8 @@ export const Proyecto = ({ id, nombre }) => {
   }, []);
 
   return (
-    <div className="w-80 h-full border border-black ">
-      <h3 className="border-b-2 border-b-black h-10 flex items-center ps-5 font-noto">
+    <div className="w-100 h-full border border-black shadow-md p-4">
+      <h3 className="border-b-2 border-b-black h-10 flex items-center px-4 font-noto">
         {nombre}{" "}
         <Link to={`/project/${id}`}>
           <span className="ms-3 i-mdi-pencil"></span>
@@ -23,17 +22,19 @@ export const Proyecto = ({ id, nombre }) => {
       </h3>
 
       <div>
-        {items.map((item) => {
-          return (
-            <div
-              className="flex justify-between items-center my-2 px-5"
-              key={item.id}
-            >
-              <p>{item.nom}</p>
-              <p>{item.percentatge}%</p>
-            </div>
-          );
-        })}
+        {items.map((item) => (
+          <div
+            className="flex justify-between items-center my-2 px-4 py-2  rounded-md"
+            key={item.id}
+          >
+            <img
+        className="foto bg-black rounded-full h-full aspect-square"
+        src={`/pokemons/${item.foto}`}
+      ></img>
+            <p className="text-sm">{item.nom}</p>
+            <p className="text-sm">{item.percentatge}%</p>
+          </div>
+        ))}
       </div>
     </div>
   );

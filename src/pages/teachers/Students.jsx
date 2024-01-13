@@ -52,7 +52,7 @@ export const Students = () => {
     <div className="container m-auto">
       <h1 className="text-center text-4xl mt-5">
         Alumnos <br />
-        <Modal title="Añadir alumno" btn="+ Nuevo" className="btn">
+        <Modal title="Añadir alumno" btn="+ Nuevo" className="btn bg-[#5abd8b]">
           <form
             onSubmit={handleAddStudent}
             className="text-base text-left [&>div]:flex [&>div]:justify-between [&>div]:items-center"
