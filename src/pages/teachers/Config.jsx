@@ -1,8 +1,19 @@
 import React from "react";
 import { PhotoPicker } from "../../components/PhotoPicker";
+import axios from "axios";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 export const Config = () => {
-  const [photo, setPhoto] = React.useState(null);
+  const { changePhoto, user } = useContext(UserContext);
+
+  const [photo, setPhoto] = React.useState(Number(user.foto.split(".")[0]) - 1);
+
+  console.log(user.foto);
+
+  const handleChangePhoto = (e) => {
+    changePhoto(`${(photo + 1)?.toString().padStart(4, "0")}.png`);
+  };
 
   return (
     <div className="container m-auto">
@@ -17,7 +28,42 @@ export const Config = () => {
               className="w-full h-[21rem] bg-white border rounded-lg p-2"
             />
           </div>
-          <div></div>
+          <div className="flex flex-col">
+            <h2 className="text-center mb-10 text-4xl font-bold">
+              Vista Previa
+            </h2>
+            <div className="grid grid-cols-3 place-items-center mb-5">
+              <img
+                src={`/pokemons/${(photo + 1)
+                  ?.toString()
+                  .padStart(4, "0")}.png`}
+                className="w-24 h-24 rounded-full"
+                alt=""
+              />
+              <img
+                src={`/pokemons/${(photo + 1)
+                  ?.toString()
+                  .padStart(4, "0")}.png`}
+                className="w-48 h-48 rounded-full"
+                style={{ imageRendering: "pixelated" }}
+                alt=""
+              />
+              <img
+                src={`/pokemons/${(photo + 1)
+                  ?.toString()
+                  .padStart(4, "0")}.png`}
+                className="w-48 h-48 rounded-lg"
+                style={{ imageRendering: "pixelated" }}
+                alt=""
+              />
+            </div>
+            <button
+              className="btn btn-primary w-min self-end me-7"
+              onClick={handleChangePhoto}
+            >
+              Cambiar
+            </button>
+          </div>
         </div>
       </div>
     </div>

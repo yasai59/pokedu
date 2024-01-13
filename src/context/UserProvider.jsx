@@ -47,8 +47,19 @@ export const UserProvider = ({ children }) => {
     }
   }, []);
 
+  const changePhoto = (photo) => {
+    axios.put("/api/users", {
+      userId: user.id,
+      userFoto: photo,
+    });
+
+    setUser((prev) => ({ ...prev, foto: photo }));
+
+    localStorage.setItem("user", JSON.stringify({ ...user, foto: photo }));
+  };
+
   return (
-    <UserContext.Provider value={{ user, login, token, logout }}>
+    <UserContext.Provider value={{ user, login, token, logout, changePhoto }}>
       {children}
     </UserContext.Provider>
   );

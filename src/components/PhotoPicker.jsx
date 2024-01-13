@@ -17,8 +17,8 @@ export const PhotoPicker = ({ photo, setPhoto, className }) => {
             key={index}
             src={`/pokemons/${item}`}
             alt="avatar"
-            className={`w-16 h-16 rounded-lg transform transition-all duration-200 hover:scale-110 ${
-              photo === index ? "border-4 border-[#c5a400]" : ""
+            className={`w-16 h-16 rounded-lg transform transition-all duration-75 hover:scale-110 ${
+              photo === index ? "border-4 border-ceciarmy" : ""
             }`}
             onClick={() => setPhoto(index)}
           />
