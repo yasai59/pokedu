@@ -69,13 +69,13 @@ export const Dashboard = () => {
 
   const handleImportUsers = (e) => {
     e.preventDefault();
-    const users = e.target.elements[0].value;
+    const users = convertToJson(e.target.elements[0].value);
     e.target.elements[0].value = "";
     // valoramos que el formato sea correcto
     try {
       JSON.parse(users);
     } catch (e) {
-      Swal.fire({
+      return Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "El formato no es correcto",
@@ -138,6 +138,39 @@ export const Dashboard = () => {
     // itemName, itemPercentatge, itemFoto
   };
 
+  function convertToCSV(objArray) {
+    const items = objArray;
+    const replacer = (key, value) => (value === null ? "" : value); // specify how you want to handle null values here
+    const header = Object.keys(items[0]);
+    const csv = [
+      header.join(","), // header row first
+      ...items.map((row) =>
+        header
+          .map((fieldName) => JSON.stringify(row[fieldName], replacer))
+          .join(",")
+      ),
+    ].join("\r\n");
+
+    return csv;
+  }
+
+  function convertToJson(csv) {
+    const lines = csv.split("\n");
+    const result = [];
+    const headers = lines[0].split(",");
+    for (let i = 1; i < lines.length; i++) {
+      const obj = {};
+      const currentline = lines[i].split(",");
+      for (let j = 0; j < headers.length; j++) {
+        obj[headers[j]] = currentline[j].slice(1, -1);
+      }
+      result.push(obj);
+    }
+    console.log(result);
+
+    return JSON.stringify(result); //JavaScript object
+  }
+
   useEffect(() => {
     axios
       .get("/api/projects")
@@ -149,7 +182,7 @@ export const Dashboard = () => {
       });
 
     axios.get("/api/users/").then((res) => {
-      exportTextArea.current.value = JSON.stringify(res.data.msg);
+      exportTextArea.current.value = convertToCSV(res.data.msg);
     });
 
     axios.get("/api/items").then((res) => {
@@ -160,7 +193,9 @@ export const Dashboard = () => {
   return (
     <div className="container m-auto pt-10">
       <div>
-        <h2 className="text-5xl font-nds font-bold  text-center md:text-left" >Alumnes</h2>
+        <h2 className="text-5xl font-nds font-bold  text-center md:text-left">
+          Alumnes
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-4 md:gap-10 mt-20 gap-5">
           <Link
             to="/students"
@@ -246,7 +281,11 @@ export const Dashboard = () => {
       </div>
       <h2 className="text-5xl mt-16 flex items-center font-nds font-bold pl-[20%] md:pl-[0px]">
         Proyectos
-        <Modal title="Añadir Proyecto" btn="+ Nuevo" className="btn ms-10 bg-[#5abd8b]">
+        <Modal
+          title="Añadir Proyecto"
+          btn="+ Nuevo"
+          className="btn ms-10 bg-[#5abd8b]"
+        >
           <form onSubmit={handleAddProject}>
             <div className="flex justify-between">
               <input
@@ -272,7 +311,11 @@ export const Dashboard = () => {
       </div>
       <h2 className="text-5xl mt-16 flex items-center font-nds font-bold pl-[30%] md:pl-[0px]">
         Skills
-        <Modal title="Añadir Skill" btn="+ Nuevo" className="btn ms-10 bg-[#5abd8b]">
+        <Modal
+          title="Añadir Skill"
+          btn="+ Nuevo"
+          className="btn ms-10 bg-[#5abd8b]"
+        >
           <form onSubmit={handleAddSkill}>
             <div className="flex justify-between">
               <input
@@ -291,7 +334,7 @@ export const Dashboard = () => {
           </form>
         </Modal>
       </h2>
-      <div className="grid md:grid-cols-5  grid-cols-1 gap-y-10 w-[80%] mx-auto mt-[20px] pb-[20px]  " >
+      <div className="grid md:grid-cols-5  grid-cols-1 gap-y-10 w-[80%] mx-auto mt-[20px] pb-[20px]  ">
         {skills.map((skill) => (
           <Skill item={skill} key={skill.id} />
         ))}
