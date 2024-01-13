@@ -6,7 +6,8 @@ import Swal from "sweetalert2";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Proyecto } from "../../components/Proyecto.jsx";
-import  "../../fonts.css";
+import "../../fonts.css";
+import { PhotoPicker } from "../../components/PhotoPicker.jsx";
 
 export const Dashboard = () => {
   const [proyectos, setProyectos] = useState([]);
@@ -101,9 +102,12 @@ export const Dashboard = () => {
     document.dispatchEvent(new CustomEvent("closeModal"));
   };
 
+  const [photo, setPhoto] = useState(0);
+
   const handleAddSkill = (e) => {
     e.preventDefault();
     const skill = e.target.elements[0].value;
+    const percentatge = e.target.elements[1].value;
     // itemName, itemPercentatge, itemFoto
   };
 
@@ -242,12 +246,17 @@ export const Dashboard = () => {
             <div className="flex justify-between">
               <input
                 type="text"
-                placeholder="Introduce el nombre del skill"
+                placeholder="Introduce el nombre de la skill"
                 className="input input-bordered w-full max-w-xs"
               />
-              <input type="number" placeholder="Introduce el " />
-              <button className="btn ms-5">Añadir</button>
+              <input
+                type="number"
+                placeholder="Introduce el porcentaje"
+                className="input input-bordered w-full max-w-xs ms-5"
+              />
             </div>
+            <PhotoPicker />
+            <button className="btn mt-5">Añadir</button>
           </form>
         </Modal>
       </h2>
