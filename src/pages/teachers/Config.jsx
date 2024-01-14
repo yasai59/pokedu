@@ -17,8 +17,8 @@ export const Config = () => {
     <div className="container m-auto h-screen">
       <h1 className="text-4xl text-center mt-5">Configuración</h1>
       <div>
-        <h3 className="text-2xl">Foto de perfil</h3>
-        <div className="grid grid-cols-2 border-2 h-96 mt-5 p-5">
+        <h3 className="text-2xl ml-[5%] lg:ml-[0%]">Foto de perfil</h3>
+        <div className="grid grid-cols-1 lg:grid-cols-2 border-2 h-96 mt-5 p-5">
           <div>
             <PhotoPicker
               photo={photo}
@@ -30,7 +30,7 @@ export const Config = () => {
             <h2 className="text-center mb-10 text-4xl font-bold">
               Vista Previa
             </h2>
-            <div className="grid grid-cols-3 place-items-center mb-5">
+            <div className="grid md:grid-cols-3 grid-cols-1 place-items-center mb-5">
               <img
                 src={`/pokemons/${(photo + 1)
                   ?.toString()

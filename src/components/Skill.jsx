@@ -1,6 +1,6 @@
 export const Skill = ({ item }) => {
   return (
-    <div className="grid grid-cols-3 w-52 border border-black p-4 m-2 m-auto ">
+    <div className="grid grid-cols-3 w-52 border border-black p-4 m-2 m-auto sand ">
       <img
         className="foto bg-black rounded-full h-full aspect-square"
         src={`/pokemons/${item.foto}`}

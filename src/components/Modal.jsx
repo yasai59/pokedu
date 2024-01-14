@@ -21,7 +21,7 @@ export const Modal = ({ children, title, btn, className , foto=""}) => {
     
     return (
       <>
-        <button className={`${className} `} onClick={handleClick} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <button className={`${className} p-2 w-[180px] seto2`} onClick={handleClick} style={{ display: 'flex', alignItems: 'center', justifyContent: 'left' }}>
           <img
             className="foto bg-black rounded-full h-full aspect-square"
             src={`/pokemons/${foto}`}

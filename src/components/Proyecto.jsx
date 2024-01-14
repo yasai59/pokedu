@@ -13,7 +13,7 @@ export const Proyecto = ({ id, nombre }) => {
   }, []);
 
   return (
-    <div className="w-80 m-[auto] md:w-100 h-full border border-black shadow-md p-4">
+    <div className="w-80 m-[auto] md:w-100 h-full border border-black shadow-md p-4 seto">
       <h3 className="border-b-2 border-b-black h-10 flex items-center px-4 font-noto">
         {nombre}{" "}
         <Link to={`/project/${id}`}>

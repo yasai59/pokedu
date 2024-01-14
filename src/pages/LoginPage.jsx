@@ -15,7 +15,7 @@ export const LoginPage = () => {
 
   return (
     <section
-      className="grid md:grid-cols-2 place-items-center min-h-screen"
+      className="grid lg:grid-cols-2 place-items-center min-h-screen"
       style={{
         backgroundImage: "url('/assets/login-background.png')",
         backgroundSize: "cover",
@@ -23,28 +23,28 @@ export const LoginPage = () => {
         
       }}
     >
-      <div className="row-start-3 md:row-start-1">
+      <div className="row-start-3 lg:row-start-1">
         
-        <div className="md:h-[50rem]">
-        <h1 className="hidden md:inline-block text-[4rem] text-center font-extrabold font-nds ps-[100px] mb-[100px] ">
+        <div className="lg:h-[50rem]">
+        <h1 className="hidden lg:inline-block text-[4rem] text-center font-extrabold font-nds ml-[100px] mb-[100px] text-[#e6dbda] drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,2)] ">
           Pokédu - Jaume Viladoms
         </h1 >
           <img
             src={`/gifs-pokedu/${randomPokemon}.gif`}
-            className="w-[700px] h-[450px] md:ps-[180px]  "
+            className="w-[700px] h-[450px] lg:ps-[180px]  "
             style={{ imageRendering: "pixelated" }}
           />
         </div>
       </div>
-      <h1 className="md:hidden text-4xl text-center font-bold font-nds mt-5">
+      <h1 className="lg:hidden text-4xl text-center font-bold font-nds mt-5  text-[#e6dbda] drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,2)]">
         Pokédu - Jaume Viladoms
       </h1>
       <form
-        className="bg-light2  mt-[20px] h-[30rem] md:h-[35rem] rounded-xl border-2 border-black w-8/12 "
+        className="bg-light2  mt-[20px] h-[30rem] md:h-[35rem] rounded-xl border-2 border-black w-8/12"
         style={{ boxShadow: "0 0 20px black" }}
         onSubmit={handleSubmit}
       >
-        <div className="flex flex-col text-4xl mt-[20%]">
+        <div className="flex flex-col text-4xl pt-[20%]  h-[100%] bg-[#f1ecec]]">
           <div className="input-wrapper">
             <input
               type="text"

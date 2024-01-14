@@ -196,16 +196,16 @@ export const Dashboard = () => {
         <h2 className="text-5xl font-nds font-bold  text-center md:text-left">
           Alumnes
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 md:gap-10 mt-20 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-4  md:grid-cols-2 lg:gap-10 mt-20 gap-5">
           <Link
             to="/students"
-            className="text-3xl text-center p-4 bg-[#bd628b] font-aldrich rounded-[15px] w-80 m-auto"
+            className="text-3xl text-center p-4 bg-[#bd628b] font-aldrich rounded-[15px] w-60 m-auto"
           >
             Gestionar
           </Link>
           <Modal
             btn={"Crear"}
-            className="text-3xl text-center p-4 bg-[#c5a400] font-aldrich rounded-[15px] w-80 m-auto"
+            className="text-3xl text-center p-4 bg-[#c5a400] font-aldrich rounded-[15px] w-60 m-auto"
             title={"Crear Alumno"}
           >
             <form
@@ -246,7 +246,7 @@ export const Dashboard = () => {
             </form>
           </Modal>
           <Modal
-            className="text-3xl text-center p-4 bg-[#bd628b]  font-aldrich rounded-[15px] w-80 m-auto"
+            className="text-3xl text-center p-4 bg-[#bd628b]  font-aldrich rounded-[15px] w-60 m-auto"
             btn={"Importar"}
             title={"Importar usuarios"}
           >
@@ -258,7 +258,7 @@ export const Dashboard = () => {
             </form>
           </Modal>
           <Modal
-            className="text-3xl text-center p-4 bg-[#c5a400] font-aldrich rounded-[15px] w-80 m-auto"
+            className="text-3xl text-center p-4 bg-[#c5a400] font-aldrich rounded-[15px] w-60 m-auto"
             title={"Exportar usuarios"}
             btn={"Exportar"}
           >
@@ -298,7 +298,7 @@ export const Dashboard = () => {
           </form>
         </Modal>
       </h2>
-      <div className="grid gap-10 md:grid-cols-4 sm:grid-cols-2 grid-cols-1 items-center pt-10">
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 items-center pt-10">
         {proyectos.map((proyecto) => {
           return (
             <Proyecto
@@ -334,7 +334,7 @@ export const Dashboard = () => {
           </form>
         </Modal>
       </h2>
-      <div className="grid md:grid-cols-5  grid-cols-1 gap-y-10 w-[80%] mx-auto mt-[20px] pb-[20px]  ">
+      <div className="grid lg:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-y-10 w-[80%] mx-auto mt-[20px] pb-[20px]  ">
         {skills.map((skill) => (
           <Skill item={skill} key={skill.id} />
         ))}

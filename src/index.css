@@ -4,9 +4,12 @@
 
 
 
-body{
+body {
   background-color: #f1ecec;
-
+  background-image: url("assets/fondo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
 }
 
 body label{
@@ -28,11 +31,12 @@ body h1, body h2, body h3, button{
 }
 
 .btn{
-  border: solid black 1px;
+  background-color: #e08377;
+  border: solid black 0px;
 }
 .btn:hover{
   background-color: #5abd8b;
-  border: solid black 1px;
+  border: solid black 0px;
 }
 
 .login-input {
@@ -75,4 +79,34 @@ body h1, body h2, body h3, button{
   color: #888888;
   font-size: 20px;
   cursor: default;
+}
+
+.seto{
+  background-color: #5abd8b;
+  background-image: url("assets/bush.png");
+  background: cover;
+  background-repeat: repeat;
+  background-size: 40%;
+  color:  white;
+
+
+}
+
+.seto2:hover{
+  background-color: #5abd8b;
+  background-image: url("assets/bush.png");
+  background: cover;
+  background-repeat: repeat;
+  background-size: 40%;
+  color:  white;
+
+
+}
+
+.sand{
+  background-color: #bdae5a;
+  background-image: url("assets/sand.png");
+  background: cover;
+  background-repeat: repeat;
+  background-size: 10%;
 }

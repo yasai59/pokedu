@@ -49,7 +49,7 @@ export const Students = () => {
   }, [update]);
 
   return (
-    <div className="container m-auto">
+    <div className="container m-auto h-screen">
       <h1 className="text-center text-4xl mt-5">
         Alumnos <br />
         <Modal title="Añadir alumno" btn="+ Nuevo" className="btn bg-[#5abd8b]">
@@ -93,7 +93,7 @@ export const Students = () => {
       </h1>
 
       {/* TODO: boton de añadir alumno */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mt-20">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mt-20 ml-[33%] md:ml-[0%]">
         {students.map((student) => {
           return (
             <StudentCard
