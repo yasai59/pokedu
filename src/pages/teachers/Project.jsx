@@ -175,17 +175,17 @@ export const Project = () => {
 
   return (
     <div className="container m-auto min-h-screen">
-      <h1 className="text-[5rem] font-bold text-center mt-5">
+      <h2 className="text-[4rem] font-bold text-center mt-5">
         <span>{project.nom}</span>
         <span className="i-mdi-pencil text-3xl text-gray-600"></span>
-      </h1>
-      <h2 className="text-4xl flex items-center mt-5">Skills </h2>
-      <section className="grid grid-cols-4 place-items-center mt-10">
+      </h2>
+      <h2 className="text-5xl font-nds font-bold  text-center md:text-left mt-8">Skills </h2>
+      <section className="grid lg:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-y-10 w-[80%] mx-auto mt-[20px] pb-[20px]">
         {project.items.map((item) => (
           <Skill item={item} key={item.id} />
         ))}
       </section>
-      <h2 className="text-4xl flex items-center mt-5">
+      <h2 className="text-5xl font-nds font-bold  text-center md:text-left mt-8">
         Actividades{" "}
         <Modal btn="+ Nuevo" className={"btn ms-5"} title="Crear actividad">
           <form onSubmit={handelAddAct}>
@@ -224,7 +224,7 @@ export const Project = () => {
           </form>
         </Modal>
       </h2>
-      <section className="grid grid-cols-4 place-items-center mt-10">
+      <section className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 items-center pt-10">
         {project.actividades.map((actividad) => (
           <ActividadProfe
             actividad={actividad}
@@ -233,7 +233,7 @@ export const Project = () => {
           />
         ))}
       </section>
-      <h2 className="text-4xl flex items-center mt-5">
+      <h2 className="text-5xl font-nds font-bold  text-center md:text-left mt-8">
         Alumnos{" "}
         <Modal btn="+ Nuevo" className={"btn ms-5"} title="Añadir alumno">
           <div>
@@ -253,9 +253,10 @@ export const Project = () => {
                 )
                 .map((alumno) => (
                   <button
+                    id={`studentButton_${alumno.id}`}
                     key={alumno.id}
-                    className={`btn btn-outline me-5 ${
-                      addList.includes(alumno.id) ? "bg-ceciarmy" : ""
+                    className={`btn btn-outline me-5 selector ${
+                      addList.includes(alumno.id) ? "focus" : ""
                     }`}
                     onClick={() => {
                       selectStudent(alumno.id);
@@ -275,7 +276,7 @@ export const Project = () => {
           </div>
         </Modal>
       </h2>
-      <section className="grid grid-cols-4 place-items-center mt-10">
+      <section className="grid lg:grid-cols-5  md:grid-cols-3 grid-cols-2 gap-y-10 w-[80%] mx-auto mt-[20px] pb-[20px]">
         {project.alumnos.map((alumno) => (
           <div
             className="flex flex-col items-center hover:bg-[#ff1f1f79] rounded-lg p-5 cursor-pointer"
@@ -317,4 +318,7 @@ export const Project = () => {
       </section>
     </div>
   );
+  
 };
+
+

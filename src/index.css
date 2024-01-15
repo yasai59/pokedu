@@ -112,5 +112,26 @@ body h1, body h2, body h3, button{
 }
 
 .focus {
-  border: 5px solid #C5A400 !important;
+  border: 3px solid black !important;
+  background-color: #5abd8b;
 }
+
+.big1 {
+
+  background-color: #bd628b;
+}
+
+.big1:hover {
+
+  background-color: #c5a400;
+}
+
+.big2{
+  background-color: #c5a400;
+}
+
+.big2:hover {
+
+  background-color: #bd628b;
+}
+

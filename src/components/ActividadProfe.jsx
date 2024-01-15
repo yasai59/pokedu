@@ -104,8 +104,8 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
   };
 
   return (
-    <div className="flex flex-col items-center mb-5">
-      <h3 className="text-2xl">
+    <div className="flex flex-col items-center mb-5 w-80 m-[auto] md:w-100 h-full border border-black shadow-md p-4 ">
+      <h3 className="text-2xl border-b border-black text-center w-[100%] mb-[30px]">
         {actividad.nom}{" "}
         <Modal
           btn={<span className="i-mdi-pencil text-lg text-gray-600"></span>}
@@ -126,7 +126,7 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
             <br />
             {/* inputs para fecha de inicio y fin */}
             <label>
-              <span className="text-lg">Fecha de inicio: </span>
+              <span className="text-lg ">Fecha de inicio: </span>
               <br />
               <input
                 type="date"

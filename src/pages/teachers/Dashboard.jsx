@@ -198,13 +198,13 @@ export const Dashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4  md:grid-cols-2 lg:gap-10 mt-20 gap-5">
           <Link
             to="/students"
-            className="text-3xl text-center p-4 bg-[#bd628b] font-aldrich rounded-[15px] w-60 m-auto"
+            className="text-3xl text-center p-4 big1 font-aldrich rounded-[15px] w-60 m-auto"
           >
             Gestionar
           </Link>
           <Modal
             btn={"Crear"}
-            className="text-3xl text-center p-4 bg-[#c5a400] font-aldrich rounded-[15px] w-60 m-auto"
+            className="text-3xl text-center p-4 big2 font-aldrich rounded-[15px] w-60 m-auto"
             title={"Crear Alumno"}
           >
             <form
@@ -245,7 +245,7 @@ export const Dashboard = () => {
             </form>
           </Modal>
           <Modal
-            className="text-3xl text-center p-4 bg-[#bd628b]  font-aldrich rounded-[15px] w-60 m-auto"
+            className="text-3xl text-center p-4 big1 font-aldrich rounded-[15px] w-60 m-auto"
             btn={"Importar"}
             title={"Importar usuarios"}
           >
@@ -257,7 +257,7 @@ export const Dashboard = () => {
             </form>
           </Modal>
           <Modal
-            className="text-3xl text-center p-4 bg-[#c5a400] font-aldrich rounded-[15px] w-60 m-auto"
+            className="text-3xl text-center p-4 big2 font-aldrich rounded-[15px] w-60 m-auto"
             title={"Exportar usuarios"}
             btn={"Exportar"}
           >

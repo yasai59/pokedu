@@ -50,7 +50,7 @@ export const Students = () => {
 
   return (
     <div className="container m-auto h-screen">
-      <h1 className="text-center text-4xl mt-5">
+      <h1 className="text-center text-6xl mt-5">
         Alumnos <br />
         <Modal title="Añadir alumno" btn="+ Nuevo" className="btn bg-[#5abd8b]">
           <form
