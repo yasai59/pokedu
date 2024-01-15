@@ -220,7 +220,11 @@ export const Project = () => {
       </h2>
       <section className="grid grid-cols-4 place-items-center mt-10">
         {project.actividades.map((actividad) => (
-          <ActividadProfe actividad={actividad} key={actividad.id} />
+          <ActividadProfe
+            actividad={actividad}
+            alumnos={project.alumnos}
+            key={actividad.id}
+          />
         ))}
       </section>
       <h2 className="text-4xl flex items-center mt-5">
