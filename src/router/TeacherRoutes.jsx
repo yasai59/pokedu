@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { NavBar } from "../components/NavBar";
 import { Dashboard } from "../pages/teachers/Dashboard";
 import { Students } from "../pages/teachers/Students";
-import { Config } from "../pages/teachers/Config";
+import { Config } from "../pages/Config";
 import { Project } from "../pages/teachers/Project";
 export const TeacherRoutes = () => {
   return (

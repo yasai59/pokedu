@@ -1,7 +1,7 @@
 import React from "react";
-import { PhotoPicker } from "../../components/PhotoPicker";
+import { PhotoPicker } from "../components/PhotoPicker";
 import { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../context/UserContext";
 
 export const Config = () => {
   const { changePhoto, user } = useContext(UserContext);
