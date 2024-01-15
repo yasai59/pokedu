@@ -110,3 +110,7 @@ body h1, body h2, body h3, button{
   background-repeat: repeat;
   background-size: 10%;
 }
+
+.focus {
+  border: 5px solid #C5A400 !important;
+}

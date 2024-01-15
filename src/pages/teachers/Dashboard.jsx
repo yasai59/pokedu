@@ -166,7 +166,6 @@ export const Dashboard = () => {
       }
       result.push(obj);
     }
-    console.log(result);
 
     return JSON.stringify(result); //JavaScript object
   }
@@ -251,7 +250,7 @@ export const Dashboard = () => {
             title={"Importar usuarios"}
           >
             <form onSubmit={handleImportUsers}>
-              <textarea className="textarea textarea-primary resize-none w-full h-96"></textarea>
+              <textarea className="textarea textarea-bordered resize-none w-full h-96"></textarea>
               <button className="btn btn-primary mt-5">
                 Importar <span className="i-material-symbols-save"></span>
               </button>
@@ -263,7 +262,7 @@ export const Dashboard = () => {
             btn={"Exportar"}
           >
             <textarea
-              className="textarea textarea-primary resize-none w-full h-96"
+              className="textarea textarea-bordered resize-none w-full h-96"
               ref={exportTextArea}
               readOnly
             ></textarea>
