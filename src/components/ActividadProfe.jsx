@@ -3,6 +3,7 @@ import { Modal } from "./Modal";
 import { SkillSelector } from "./SkillSelector";
 import { useParams } from "react-router";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export const ActividadProfe = ({ actividad, alumnos }) => {
   const [name, setName] = React.useState(actividad.nom);
@@ -10,10 +11,18 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
   const [dataFinal, setDataFinal] = React.useState(actividad.dataFinal);
 
   const [skill, setSkill] = React.useState(null);
-
-  console.log(alumnos);
+  let oSkill;
 
   const { id } = useParams("id");
+
+  React.useEffect(() => {
+    axios
+      .get("/api/items/itemactivity?activityid=" + actividad.id)
+      .then((res) => {
+        setSkill(res.data.msg.item ?? null);
+        oSkill = res.data.msg.item;
+      });
+  }, []);
 
   const handleUpdateAct = (e) => {
     e.preventDefault();
@@ -23,16 +32,26 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
       activityDataFinal: dataFinal,
       activityDataInicio: dataInici,
     };
-    if (skill != null) {
-      axios.post("/api/activities/activityPostMassive", {
-        activityId: actividad.id,
-        projectId: id,
-        skillId: skill,
-      });
+    if (skill != null && skill != oSkill) {
+      axios
+        .post("/api/activities/activityPostMassive", {
+          activityId: actividad.id,
+          projectId: id,
+          skillId: skill,
+        })
+        .then((res) => {
+          document.dispatchEvent(new CustomEvent("updateSkills"));
+
+          Swal.fire({
+            title: "Actividad modificada",
+            icon: "success",
+            timer: 1500,
+            showConfirmButton: false,
+          });
+        });
     }
     axios.put("/api/activities", data).then((res) => {});
-
-    // { activityId, projectId, skillId }
+    document.dispatchEvent(new CustomEvent("closeModal"));
   };
 
   const handleCorregir = (e) => {
@@ -104,7 +123,10 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
           <div className="max-h-96 overflow-y-scroll">
             {alumnos.map((al) => {
               return (
-                <div className="flex items-center w-5/6 m-auto justify-between mb-5">
+                <div
+                  className="flex items-center w-5/6 m-auto justify-between mb-5"
+                  key={al.id}
+                >
                   <p className="text-xl">{al.nom}</p>
                   <input
                     type="number"

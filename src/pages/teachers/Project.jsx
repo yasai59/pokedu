@@ -23,6 +23,18 @@ export const Project = () => {
 
   const [addList, setAddList] = React.useState([]);
 
+  const [update, setUpdate] = React.useState(false);
+
+  document.addEventListener("updateSkills", () => {
+    setUpdate((prev) => !prev);
+  });
+
+  useEffect(() => {
+    axios.get("/api/items/itemsproject?projectId=" + id).then((res) => {
+      setProject((prev) => ({ ...prev, items: res.data.msg }));
+    });
+  }, [update]);
+
   useEffect(() => {
     axios.get(`/api/projects/project?projectId=${id}`).then((res) => {
       setProject((prev) => ({ ...prev, nom: res.data.msg.nom }));
