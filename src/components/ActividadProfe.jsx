@@ -32,28 +32,27 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
     // { activityId, activityDataFinal, activityDataInicio }
     const data = {
       activityId: actividad.id,
-      activityDataFinal: dataFinal,
-      activityDataInicio: dataInici,
+      activityDataFinal: dataFinal.toISOString().split("T")[0],
+      activityDataInicio: dataInici.toISOString().split("T")[0],
     };
     if (skill != null && skill != oSkill) {
-      axios
-        .post("/api/activities/activityPostMassive", {
-          activityId: actividad.id,
-          projectId: id,
-          skillId: skill,
-        })
-        .then((res) => {
-          document.dispatchEvent(new CustomEvent("updateSkills"));
-
-          Swal.fire({
-            title: "Actividad modificada",
-            icon: "success",
-            timer: 1500,
-            showConfirmButton: false,
-          });
-        });
+      axios.post("/api/activities/activityPostMassive", {
+        activityId: actividad.id,
+        projectId: id,
+        skillId: skill,
+      });
     }
-    axios.put("/api/activities", data).then((res) => {});
+    axios.put("/api/activities", data).then((res) => {
+      Swal.fire({
+        title: "Actividad modificada",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    });
+
+    document.dispatchEvent(new CustomEvent("updateProject"));
+
     document.dispatchEvent(new CustomEvent("closeModal"));
   };
 

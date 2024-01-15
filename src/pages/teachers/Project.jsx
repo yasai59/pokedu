@@ -25,15 +25,9 @@ export const Project = () => {
 
   const [update, setUpdate] = React.useState(false);
 
-  document.addEventListener("updateSkills", () => {
+  document.addEventListener("updateProject", () => {
     setUpdate((prev) => !prev);
   });
-
-  useEffect(() => {
-    axios.get("/api/items/itemsproject?projectId=" + id).then((res) => {
-      setProject((prev) => ({ ...prev, items: res.data.msg }));
-    });
-  }, [update]);
 
   useEffect(() => {
     axios.get(`/api/projects/project?projectId=${id}`).then((res) => {
@@ -69,7 +63,7 @@ export const Project = () => {
     axios.get("/api/users/students").then((res) => {
       setAlumnos(res.data.msg);
     });
-  }, []);
+  }, [update]);
 
   const selectStudent = (id) => {
     if (addList.includes(id)) {
