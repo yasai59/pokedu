@@ -62,7 +62,6 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
     const inputs = container.current.querySelectorAll(".alumno");
     let data = {};
     inputs.forEach((input) => {
-      console.log("hola");
       data[input.dataset.alumno] = input.querySelector("input").value;
     });
     // comprobarr la validez de todas las notas
