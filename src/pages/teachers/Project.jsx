@@ -280,10 +280,30 @@ export const Project = () => {
           <div
             className="flex flex-col items-center hover:bg-[#ff1f1f79] rounded-lg p-5 cursor-pointer"
             onClick={() => {
-              axios.delete(
-                `/api/userprojects?user=${alumno.id}&projecte=${id}`
-              );
-              setUpdate((prev) => !prev);
+              Swal.fire({
+                title: "¿Estás seguro?",
+                text: "No podrás revertir esta acción!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Sí, bórralo!",
+                cancelButtonText: "No, cancelar!",
+                reverseButtons: true,
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  axios
+                    .delete(
+                      `/api/userprojects?user=${alumno.id}&projecte=${id}`
+                    )
+                    .then(() => {
+                      Swal.fire(
+                        "Borrado!",
+                        "El alumno ha sido borrado del proyecto.",
+                        "success"
+                      );
+                      setUpdate((prev) => !prev);
+                    });
+                }
+              });
             }}
             key={alumno.id}
           >
