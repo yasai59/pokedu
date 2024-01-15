@@ -4,11 +4,14 @@ import { SkillSelector } from "./SkillSelector";
 import { useParams } from "react-router";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useRef } from "react";
 
 export const ActividadProfe = ({ actividad, alumnos }) => {
   const [name, setName] = React.useState(actividad.nom);
   const [dataInici, setDataInici] = React.useState(actividad.dataInici);
   const [dataFinal, setDataFinal] = React.useState(actividad.dataFinal);
+
+  const container = useRef(null);
 
   const [skill, setSkill] = React.useState(null);
   let oSkill;
@@ -56,6 +59,50 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
 
   const handleCorregir = (e) => {
     e.preventDefault();
+
+    const inputs = container.current.querySelectorAll(".alumno");
+    let data = {};
+    inputs.forEach((input) => {
+      console.log("hola");
+      data[input.dataset.alumno] = input.querySelector("input").value;
+    });
+    // comprobarr la validez de todas las notas
+    Object.keys(data).forEach((key) => {
+      if (Number(data[key]) < 0 || Number(data[key]) > 10) {
+        return Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Las notas tienen que estar entre 0 y 10!",
+        });
+      }
+
+      // -1 significa no corregido
+      if (data[key] == "") {
+        data[key] = "-1";
+      }
+
+      if (isNaN(data[key])) {
+        return Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Las notas tienen que ser un número!",
+        });
+      }
+    });
+
+    axios
+      .put("/api/grades/massive", { activityId: actividad.id, marks: data })
+      .then((res) => {
+        Swal.fire({
+          icon: "success",
+          title: "Notas guardadas",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -120,11 +167,12 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
       </p>
       <Modal btn={"Corregir"} title="Corregir actividad" className="btn mt-5">
         <form onSubmit={handleCorregir}>
-          <div className="max-h-96 overflow-y-scroll">
+          <div className="max-h-96 overflow-y-scroll" ref={container}>
             {alumnos.map((al) => {
               return (
                 <div
-                  className="flex items-center w-5/6 m-auto justify-between mb-5"
+                  className="flex items-center w-5/6 m-auto justify-between mb-5 alumno"
+                  data-alumno={al.id}
                   key={al.id}
                 >
                   <p className="text-xl">{al.nom}</p>

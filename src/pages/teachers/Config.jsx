@@ -1,6 +1,5 @@
 import React from "react";
 import { PhotoPicker } from "../../components/PhotoPicker";
-import axios from "axios";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 
@@ -64,7 +63,6 @@ export const Config = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
