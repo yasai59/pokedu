@@ -277,7 +277,16 @@ export const Project = () => {
       </h2>
       <section className="grid grid-cols-4 place-items-center mt-10">
         {project.alumnos.map((alumno) => (
-          <div className="flex flex-col items-center" key={alumno.id}>
+          <div
+            className="flex flex-col items-center hover:bg-[#ff1f1f79] rounded-lg p-5 cursor-pointer"
+            onClick={() => {
+              axios.delete(
+                `/api/userprojects?user=${alumno.id}&projecte=${id}`
+              );
+              setUpdate((prev) => !prev);
+            }}
+            key={alumno.id}
+          >
             <img
               src={`/pokemons/${alumno.foto ?? "0001.png"}`}
               className="w-24 h-24 rounded-full"
