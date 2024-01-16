@@ -55,6 +55,7 @@ export const Project = () => {
               nom: act.nom,
               dataInici: new Date(act["data-inici"]),
               dataFinal: new Date(act["data-final"]),
+              descripcion: act.descripcion,
             };
 
             return newAct;
@@ -165,6 +166,7 @@ export const Project = () => {
                 nom: act.nom,
                 dataInici: new Date(act["data-inici"]),
                 dataFinal: new Date(act["data-final"]),
+                descripcion: act.descripcion,
               };
 
               return newAct;

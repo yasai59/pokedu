@@ -19,7 +19,6 @@ export const ActividadAlumno = ({ actividad }) => {
       .get("/api/items/itemactivity?activityid=" + actividad.id_actividad)
       .then((res) => {
         axios.get("/api/items/item?itemId=" + res.data.msg.item).then((res) => {
-          console.log(res.data.msg);
           setSkill(res.data.msg);
         });
       });

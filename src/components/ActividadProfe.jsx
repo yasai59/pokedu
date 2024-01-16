@@ -36,7 +36,7 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
       activityId: actividad.id,
       activityDataFinal: dataFinal.toISOString().split("T")[0],
       activityDataInicio: dataInici.toISOString().split("T")[0],
-      activityDescription: desc,
+      activityDescripcion: desc,
     };
     if (skill != null && skill != oSkill) {
       axios
