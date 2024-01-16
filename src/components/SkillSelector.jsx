@@ -25,7 +25,9 @@ export const SkillSelector = ({ skill, setSkill }) => {
               src={`/pokemons/${item.foto}`}
               alt={`${item.nom} - ${item.percentatge}%`}
             />
-            <p class ="text-xl">{item.nom} {item.percentatge}%</p>
+            <p className="text-xl">
+              {item.nom} {item.percentatge}%
+            </p>
           </div>
         </button>
       ))}

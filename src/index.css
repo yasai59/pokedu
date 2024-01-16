@@ -112,7 +112,7 @@ body h1, body h2, body h3, button{
 }
 
 .focus {
-  border: 3px solid black !important;
+  /*border: 3px solid black !important; */
   background-color: #5abd8b;
 }
 

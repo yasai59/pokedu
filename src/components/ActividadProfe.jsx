@@ -22,8 +22,8 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
     axios
       .get("/api/items/itemactivity?activityid=" + actividad.id)
       .then((res) => {
-        setSkill(res.data.msg.item ?? null);
-        oSkill = res.data.msg.item;
+        setSkill(res.data.msg?.item ?? null);
+        oSkill = res.data.msg?.item;
       });
   }, []);
 
@@ -36,11 +36,16 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
       activityDataInicio: dataInici.toISOString().split("T")[0],
     };
     if (skill != null && skill != oSkill) {
-      axios.post("/api/activities/activityPostMassive", {
-        activityId: actividad.id,
-        projectId: id,
-        skillId: skill,
-      });
+      axios
+        .post("/api/activities/activityPostMassive", {
+          activityId: actividad.id,
+          projectId: id,
+          skillId: skill,
+        })
+        .then(() => {
+          console.log("adasdasdada");
+          document.dispatchEvent(new CustomEvent("updateProject"));
+        });
     }
     axios.put("/api/activities", data).then((res) => {
       Swal.fire({
@@ -50,8 +55,6 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
         showConfirmButton: false,
       });
     });
-
-    document.dispatchEvent(new CustomEvent("updateProject"));
 
     document.dispatchEvent(new CustomEvent("closeModal"));
   };
@@ -91,6 +94,8 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
     axios
       .put("/api/grades/massive", { activityId: actividad.id, marks: data })
       .then((res) => {
+        document.dispatchEvent(new CustomEvent("updateProject"));
+        document.dispatchEvent(new CustomEvent("closeModal"));
         Swal.fire({
           icon: "success",
           title: "Notas guardadas",
