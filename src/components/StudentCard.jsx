@@ -9,8 +9,9 @@ export const StudentCard = ({ student, setUpdate }) => {
   const [password, setPassword] = useState("");
 
   const handleDeleteStudent = (id, e) => {
-    axios.delete("/api/users?userId=" + id);
-    setUpdate((prev) => !prev);
+    axios.delete("/api/users?userId=" + id).then(() => {
+      setUpdate((prev) => !prev);
+    });
     document.dispatchEvent(new CustomEvent("closeModal"));
   };
   const handleUpdateStudent = (id, e) => {

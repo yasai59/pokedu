@@ -21,14 +21,16 @@ export const Students = () => {
     e.target.elements[1].value = "";
     e.target.elements[2].value = "";
 
-    axios.post("/api/users", {
-      userUser: username,
-      userPass: password,
-      userName: name,
-      userType: "STUDENT_ROLE",
-    });
-
-    setUpdate(!update);
+    axios
+      .post("/api/users", {
+        userUser: username,
+        userPass: password,
+        userName: name,
+        userType: "STUDENT_ROLE",
+      })
+      .then(() => {
+        setUpdate(!update);
+      });
 
     document.dispatchEvent(new CustomEvent("closeModal"));
   };
