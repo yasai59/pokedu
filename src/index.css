@@ -20,6 +20,10 @@ body h1, body h2, body h3, button{
   font-family: 'NDS_BIOS';
 }
 
+.nintendo {
+  font-family: 'NDS_BIOS';
+}
+
 .btn-primary{
   background-color: #5abd8b;
   color: black;

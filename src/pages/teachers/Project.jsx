@@ -6,6 +6,7 @@ import { Modal } from "../../components/Modal";
 import { Skill } from "../../components/Skill";
 import Swal from "sweetalert2";
 import { ActividadProfe } from "../../components/ActividadProfe";
+import { TitleChange } from "../../components/TitleChange";
 
 export const Project = () => {
   const navigate = useNavigate();
@@ -203,10 +204,9 @@ export const Project = () => {
 
   return (
     <div className="container m-auto min-h-screen">
-      <h2 className="text-[4rem] font-bold text-center mt-5">
-        <span>{project.nom}</span>
-        <span className="i-mdi-pencil text-3xl text-gray-600"></span>
-      </h2>
+      <div className="grid place-items-center">
+        <TitleChange project={project} setProject={setProject} />
+      </div>
       <h2 className="text-5xl font-nds font-bold  text-center md:text-left mt-8">
         Skills{" "}
       </h2>
