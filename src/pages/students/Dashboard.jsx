@@ -30,7 +30,7 @@ export const Dashboard = () => {
       <h2 className="text-[4rem] text-center font-bold my-10">Mis proyectos</h2>
       <article
         id="projects"
-        className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 items-center pt-10"
+        className="grid gap-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 items-center pt-10"
       >
         {projects.map((project) => {
           return (
@@ -45,12 +45,15 @@ export const Dashboard = () => {
       <h2 className="text-[4rem] text-center font-bold my-10">
         Mis actividades activas
       </h2>
-      <article id="active-activities">
+      <article id="active-activities ">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-y-10 gap-x-0 w-[100%]  mt-[20px] pb-[20px]">
         {activeActivities.map((activity) => {
           return (
             <ActividadAlumno actividad={activity} key={activity.id_actividad} />
           );
         })}
+        </div>
+  
       </article>
     </section>
   );

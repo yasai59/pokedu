@@ -46,8 +46,8 @@ export const Activity = () => {
     <section className="container m-auto min-h-screen">
       <h1 className="text-[4rem] font-bold text-center">{activity.nom}</h1>
       <h2 className="text-3xl font-bold text-center">{proyecto.nom}</h2>
-      <article className="grid grid-cols-2 mt-10">
-        <div id="desc" className="border-r-2 border-black w-full h-[40rem]">
+      <article className="grid grid-cols-1 md:grid-cols-2 mt-10">
+        <div id="desc" className="border-b-2  md:border-b-0 md:border-r-2 border-black w-full h-[40rem]">
           <h3 className="text-3xl font-bold text-center">Descripción</h3>
           <p className="text-justify p-5">
             {activity.descripcion != "undefined"
@@ -56,7 +56,7 @@ export const Activity = () => {
           </p>
         </div>
         <div id="datos">
-          <h2 className="text-3xl font-bold text-center">
+          <h2 className="text-3xl font-bold text-center mt-5">
             Skill de la actividad
           </h2>
           {!skill ? (
@@ -65,12 +65,12 @@ export const Activity = () => {
             </h3>
           ) : (
             <div className="mt-10 m-auto p-10">
-              <h3 className="text-2xl text-center font-bold">
+              <h3 className="text-2xl text-center font-bold mb-10">
                 {skill.nom} - {skill.percentatge}%
               </h3>
-              <div className="w-full h-20 bg-gray-50">
+              <div className="w-full h-20 bg-gray-50 bg-[#6b6961] rounded-3xl">
                 <div
-                  className="h-5/6 bg-green-500"
+                  className="h-20 bg-green-500  rounded-l-3xl"
                   style={{ width: skill.percentatge + "%" }}
                 ></div>
               </div>

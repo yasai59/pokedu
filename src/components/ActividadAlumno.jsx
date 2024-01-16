@@ -26,14 +26,20 @@ export const ActividadAlumno = ({ actividad }) => {
 
   return (
     <Link to={`/activity/${actividad.id_actividad}`}>
-      <div className="w-80 border border-black">
+      <div className="w-80 border border-black m-auto">
         <h3 className="text-3xl text-center">{actividad.nombre_actividad}</h3>
-        <p className="text-xl">
-          Fecha de inicio: {fechaInicio.getDate()}/{fechaInicio.getMonth() + 1}/
+        <p className="text-xl text-center">
+          Fecha de inicio:  
+        </p>
+        <p className="text-xl text-center ">
+         {fechaInicio.getDate()}/{fechaInicio.getMonth() + 1}/
           {fechaInicio.getFullYear()}
         </p>
-        <p className="text-xl">
-          Fecha de fin: {fechaFin.getDate()}/{fechaFin.getMonth() + 1}/
+        <p className="text-xl text-center">
+          Fecha de fin:
+        </p>
+        <p className="text-xl text-center">
+          {fechaFin.getDate()}/{fechaFin.getMonth() + 1}/
           {fechaFin.getFullYear()}
         </p>
         <p className="text-xl text-center font-bold my-2">Skill</p>

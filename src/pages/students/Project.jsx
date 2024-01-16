@@ -76,8 +76,8 @@ export const Project = () => {
       <h2 className="text-5xl font-bold text-center mb-5">
         Skills del proyecto
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 place-items-center">
-        <ul className="border-2 border-black p-10 rounded-xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 place-items-center mb-5">
+        <ul className="border-2 border-black p-10 rounded-xl mb-10 ">
           {project.items.map((item) => (
             <li className="text-lg mb-5" key={item.id}>
               {item.nom} - {item.percentatge}%
@@ -98,15 +98,16 @@ export const Project = () => {
         />
       </div>
       <h2 className="text-5xl font-bold text-center mb-5">Actividad activa</h2>
-      <div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-y-10 gap-x-0 w-[100%]  mt-[20px] pb-[20px]">
         {project.activeActivity.map((act) => {
           return <ActividadAlumno actividad={act} key={act.id} />;
         })}
       </div>
-      <h2 className="text-5xl font-bold text-center mb-5">
+      
+      <h2 className="text-5xl font-bold text-center mt-5">
         Actividades cerradas
       </h2>
-      <div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-y-10 gap-x-0 w-[100%]  mt-[20px] pb-[20px]">
         {project.activities.map((act) => {
           return <ActividadAlumno actividad={act} key={act.id} />;
         })}
