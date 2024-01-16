@@ -5,10 +5,9 @@
 
 
 body {
-  background-color: #f1ecec;
-  background-image: url("assets/fondo.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+
+  background: rgb(225,240,184);
+  background: linear-gradient(45deg, rgba(225,240,184,1) 0%, rgba(225,240,184,1) 51%, rgba(159,207,197,1) 64%, rgba(159,207,197,1) 84%, #5FB7EF 100%);
  
 }
 
@@ -122,20 +121,20 @@ body h1, body h2, body h3, button{
 
 .big1 {
 
-  background-color: #bd628b;
+  background-color: #86A7FC;
 }
 
 .big1:hover {
 
-  background-color: #c5a400;
+  background-color: #FFDD95;
 }
 
 .big2{
-  background-color: #c5a400;
+  background-color: #86A7FC;
 }
 
 .big2:hover {
 
-  background-color: #bd628b;
+  background-color: #FFDD95;
 }
 

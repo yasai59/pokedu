@@ -76,7 +76,7 @@ export const Project = () => {
       <h2 className="text-5xl font-bold text-center mb-5">
         Skills del proyecto
       </h2>
-      <div className="grid grid-cols-2 place-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 place-items-center">
         <ul className="border-2 border-black p-10 rounded-xl">
           {project.items.map((item) => (
             <li className="text-lg mb-5" key={item.id}>
