@@ -25,7 +25,7 @@ export const ActividadAlumno = ({ actividad }) => {
   }, []);
 
   return (
-    <Link to={`/activity/${skill.id}`}>
+    <Link to={`/activity/${actividad.id_actividad}`}>
       <div className="w-80 border border-black">
         <h3 className="text-3xl text-center">{actividad.nombre_actividad}</h3>
         <p className="text-xl">
