@@ -7,9 +7,11 @@ import Swal from "sweetalert2";
 import { useRef } from "react";
 
 export const ActividadProfe = ({ actividad, alumnos }) => {
+  console.log(actividad);
   const [name, setName] = React.useState(actividad.nom);
   const [dataInici, setDataInici] = React.useState(actividad.dataInici);
   const [dataFinal, setDataFinal] = React.useState(actividad.dataFinal);
+  const [desc, setDesc] = React.useState(actividad.descripcion);
 
   const container = useRef(null);
 
@@ -34,6 +36,7 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
       activityId: actividad.id,
       activityDataFinal: dataFinal.toISOString().split("T")[0],
       activityDataInicio: dataInici.toISOString().split("T")[0],
+      activityDescription: desc,
     };
     if (skill != null && skill != oSkill) {
       axios
@@ -170,6 +173,17 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
                 placeholder="e.j nginx"
                 value={dataFinal.toISOString().split("T")[0]}
                 onChange={(e) => setDataFinal(new Date(e.target.value))}
+              />
+            </label>
+            <br />
+            <label>
+              <span className="text-lg">Descripción de la actividad: </span>
+              <br />
+              <textarea
+                className="textarea h-24 textarea-bordered resize-none w-full mt-5"
+                placeholder="Descripción de la actividad"
+                value={desc}
+                onChange={(e) => setDesc(e.target.value)}
               />
             </label>
             <br />

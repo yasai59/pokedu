@@ -117,6 +117,7 @@ export const Project = () => {
     const activityName = e.target[0].value;
     const activityDataInici = e.target[1].value;
     const activityDataFinal = e.target[2].value;
+    const activityDescription = e.target[3].value;
     const activityProjectId = id;
     // comprobar fechas
     if (activityDataInici > activityDataFinal) {
@@ -144,6 +145,7 @@ export const Project = () => {
         activityName,
         activityDataInici,
         activityDataFinal,
+        activityDescription,
         activityProjectId,
       })
       .then(() => {
@@ -247,6 +249,15 @@ export const Project = () => {
                 type="date"
                 className="input input-bordered"
                 placeholder="e.j nginx"
+              />
+            </label>
+            <br />
+            <label>
+              <span className="text-lg">Descripción de la actividad: </span>
+              <br />
+              <textarea
+                className="textarea h-24 textarea-bordered resize-none w-full mt-5"
+                placeholder="Descripción de la actividad"
               />
             </label>
             <br />

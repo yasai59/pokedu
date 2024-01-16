@@ -26,7 +26,7 @@ export const Dashboard = () => {
   }, [user]);
 
   return (
-    <section className="container m-auto h-screen">
+    <section className="container m-auto min-h-screen">
       <h2 className="text-[4rem] text-center font-bold my-10">Mis proyectos</h2>
       <article
         id="projects"

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export const ActividadAlumno = ({ actividad }) => {
   const fechaInicio = new Date(actividad.fecha_inicio);
@@ -25,26 +26,28 @@ export const ActividadAlumno = ({ actividad }) => {
   }, []);
 
   return (
-    <div className="w-80 border border-black">
-      <h3 className="text-3xl text-center">{actividad.nombre_actividad}</h3>
-      <p className="text-xl">
-        Fecha de inicio: {fechaInicio.getDate()}/{fechaInicio.getMonth() + 1}/
-        {fechaInicio.getFullYear()}
-      </p>
-      <p className="text-xl">
-        Fecha de fin: {fechaFin.getDate()}/{fechaFin.getMonth() + 1}/
-        {fechaFin.getFullYear()}
-      </p>
-      <p className="text-xl text-center font-bold my-2">Skill</p>
-      <div className="flex justify-between p-5">
-        <img
-          src={`/pokemons/${skill.foto}`}
-          alt=""
-          className="w-10 rounded-full"
-        />
-        <p className="text-xl">{skill.nom}</p>
-        <p className="text-xl">{skill.percentatge}%</p>
+    <Link to={`/activity/${skill.id}`}>
+      <div className="w-80 border border-black">
+        <h3 className="text-3xl text-center">{actividad.nombre_actividad}</h3>
+        <p className="text-xl">
+          Fecha de inicio: {fechaInicio.getDate()}/{fechaInicio.getMonth() + 1}/
+          {fechaInicio.getFullYear()}
+        </p>
+        <p className="text-xl">
+          Fecha de fin: {fechaFin.getDate()}/{fechaFin.getMonth() + 1}/
+          {fechaFin.getFullYear()}
+        </p>
+        <p className="text-xl text-center font-bold my-2">Skill</p>
+        <div className="flex justify-between p-5">
+          <img
+            src={`/pokemons/${skill.foto}`}
+            alt=""
+            className="w-10 rounded-full"
+          />
+          <p className="text-xl">{skill.nom}</p>
+          <p className="text-xl">{skill.percentatge}%</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
