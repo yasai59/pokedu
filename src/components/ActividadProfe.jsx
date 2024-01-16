@@ -43,7 +43,6 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
           skillId: skill,
         })
         .then(() => {
-          console.log("adasdasdada");
           document.dispatchEvent(new CustomEvent("updateProject"));
         });
     }
@@ -108,6 +107,26 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
       });
   };
 
+  const handleDeleteAct = (e) => {
+    e.preventDefault();
+    document.dispatchEvent(new CustomEvent("closeModal"));
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Esta acción no se puede deshacer",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Sí, bórralo",
+      cancelButtonText: "No, cancelar",
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete("/api/activities?activityId=" + actividad.id).then(() => {
+          document.dispatchEvent(new CustomEvent("updateProject"));
+        });
+      }
+    });
+  };
+
   return (
     <div className="flex flex-col items-center mb-5 w-80 m-[auto] md:w-100 h-full border border-black shadow-md p-4 ">
       <h3 className="text-2xl border-b border-black text-center w-[100%] mb-[30px]">
@@ -157,6 +176,13 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
             <p>Skill de la actividad: </p>
             <SkillSelector skill={skill} setSkill={setSkill} />
             <button className="btn mt-5">Modificar actividad</button>
+            <button
+              className="btn mt-5 ms-5"
+              role="button"
+              onClick={handleDeleteAct}
+            >
+              Eliminar actividad
+            </button>
           </form>
         </Modal>
       </h3>

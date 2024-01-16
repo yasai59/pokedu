@@ -170,7 +170,7 @@ export const Dashboard = () => {
     return JSON.stringify(result); //JavaScript object
   }
 
-  useEffect(() => {
+  const updateAll = () => {
     axios
       .get("/api/projects")
       .then((res) => {
@@ -187,6 +187,14 @@ export const Dashboard = () => {
     axios.get("/api/items").then((res) => {
       setSkills(res.data.msg);
     });
+  };
+
+  document.addEventListener("updateProject", () => {
+    updateAll();
+  });
+
+  useEffect(() => {
+    updateAll();
   }, [update]);
 
   return (

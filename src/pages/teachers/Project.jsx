@@ -1,13 +1,14 @@
 import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Modal } from "../../components/Modal";
 import { Skill } from "../../components/Skill";
 import Swal from "sweetalert2";
 import { ActividadProfe } from "../../components/ActividadProfe";
 
 export const Project = () => {
+  const navigate = useNavigate();
   const { id } = useParams("id");
   const [project, setProject] = React.useState({
     id,
@@ -27,9 +28,10 @@ export const Project = () => {
 
   document.addEventListener("updateProject", () => {
     setUpdate((prev) => !prev);
+    getData();
   });
 
-  useEffect(() => {
+  const getData = () => {
     axios.get(`/api/projects/project?projectId=${id}`).then((res) => {
       setProject((prev) => ({ ...prev, nom: res.data.msg.nom }));
     });
@@ -63,6 +65,10 @@ export const Project = () => {
     axios.get("/api/users/students").then((res) => {
       setAlumnos(res.data.msg);
     });
+  };
+
+  useEffect(() => {
+    getData();
   }, [update]);
 
   const selectStudent = (id) => {
@@ -173,13 +179,37 @@ export const Project = () => {
       });
   };
 
+  const handleBorrarProjecto = (e) => {
+    e.preventDefault();
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "No podrás revertir esta acción!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Sí, bórralo!",
+      cancelButtonText: "No, cancelar!",
+      reverseButtons: true,
+    }).then((result) => {
+      axios.delete(`/api/projects?projectId=${id}`).then(() => {
+        Swal.fire(
+          "Borrado!",
+          "El proyecto ha sido borrado correctamente.",
+          "success"
+        );
+        navigate("/dashboard");
+      });
+    });
+  };
+
   return (
     <div className="container m-auto min-h-screen">
       <h2 className="text-[4rem] font-bold text-center mt-5">
         <span>{project.nom}</span>
         <span className="i-mdi-pencil text-3xl text-gray-600"></span>
       </h2>
-      <h2 className="text-5xl font-nds font-bold  text-center md:text-left mt-8">Skills </h2>
+      <h2 className="text-5xl font-nds font-bold  text-center md:text-left mt-8">
+        Skills{" "}
+      </h2>
       <section className="grid lg:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-y-10 w-[80%] mx-auto mt-[20px] pb-[20px]">
         {project.items.map((item) => (
           <Skill item={item} key={item.id} />
@@ -316,9 +346,11 @@ export const Project = () => {
           </div>
         ))}
       </section>
+      <section>
+        <button className="btn" onClick={handleBorrarProjecto}>
+          Borrar Projecto
+        </button>
+      </section>
     </div>
   );
-  
 };
-
-
