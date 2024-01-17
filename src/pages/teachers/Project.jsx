@@ -278,7 +278,7 @@ export const Project = () => {
       </section>
       <h2 className="text-5xl font-nds font-bold  text-center md:text-left mt-8">
         Alumnos{" "}
-        <Modal btn="+ Nuevo" className={"btn ms-5"} title="Añadir alumno">
+        <Modal btn="+ Asignar" className={"btn ms-5"} title="Añadir alumno">
           <div>
             <input
               type="text"
