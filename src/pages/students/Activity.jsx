@@ -18,6 +18,8 @@ export const Activity = () => {
 
   const [skill, setSkill] = useState(undefined);
 
+  const [nota, setNota] = useState("Sin corregir");
+
   const [activity, setActivity] = useState({
     id: null,
     nom: "No hay actividad",
@@ -36,18 +38,29 @@ export const Activity = () => {
     axios.get("/api/items/itemactivity?activityid=" + id).then((res) => {
       if (!res.data.msg) return;
       axios.get("/api/items/item?itemId=" + res.data.msg.item).then((res) => {
-        console.log(res.data.msg);
         setSkill(res.data.msg);
       });
     });
+
+    axios
+      .get("/api/grades/activity?actividad=" + id + "&alumno=" + user.id)
+      .then((res) => {
+        if (!res.data.msg) return;
+
+        setNota("Nota: " + res.data.msg.nota);
+      });
   }, [user]);
 
   return (
     <section className="container m-auto min-h-screen">
       <h1 className="text-[4rem] font-bold text-center">{activity.nom}</h1>
       <h2 className="text-3xl font-bold text-center">{proyecto.nom}</h2>
+      <h3 className="text-2xl font-bold text-center">{nota}</h3>
       <article className="grid grid-cols-1 md:grid-cols-2 mt-10">
-        <div id="desc" className="border-b-2  md:border-b-0 md:border-r-2 border-black w-full h-[40rem]">
+        <div
+          id="desc"
+          className="border-b-2  md:border-b-0 md:border-r-2 border-black w-full h-[40rem]"
+        >
           <h3 className="text-3xl font-bold text-center">Descripción</h3>
           <p className="text-justify p-5">
             {activity.descripcion != "undefined"
@@ -66,11 +79,15 @@ export const Activity = () => {
           ) : (
             <div className="mt-10 m-auto p-10">
               <h3 className="text-2xl text-center font-bold mb-10">
+                <img
+                  src={`/pokemons/${skill.foto}`}
+                  className="inline-block me-10 w-16 rounded-full"
+                />
                 {skill.nom} - {skill.percentatge}%
               </h3>
-              <div className="w-full h-20 bg-gray-50 bg-[#6b6961] rounded-3xl">
+              <div className="w-full h-20 bg-[#6b6961] rounded-3xl">
                 <div
-                  className="h-20 bg-green-500  rounded-l-3xl"
+                  className="h-full bg-green-500  rounded-l-3xl"
                   style={{ width: skill.percentatge + "%" }}
                 ></div>
               </div>

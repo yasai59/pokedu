@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 import { useRef } from "react";
 
 export const ActividadProfe = ({ actividad, alumnos }) => {
-  console.log(actividad);
   const [name, setName] = React.useState(actividad.nom);
   const [dataInici, setDataInici] = React.useState(actividad.dataInici);
   const [dataFinal, setDataFinal] = React.useState(actividad.dataFinal);
@@ -31,6 +30,7 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
 
   const handleUpdateAct = (e) => {
     e.preventDefault();
+    let err = false;
     // { activityId, activityDataFinal, activityDataInicio }
     const data = {
       activityId: actividad.id,
@@ -47,16 +47,26 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
         })
         .then(() => {
           document.dispatchEvent(new CustomEvent("updateProject"));
+        })
+        .catch(() => {
+          err = true;
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "La skill no se ha podido añadir (la actividad no se ha modificado)",
+          });
         });
     }
-    axios.put("/api/activities", data).then((res) => {
-      Swal.fire({
-        title: "Actividad modificada",
-        icon: "success",
-        timer: 1500,
-        showConfirmButton: false,
+    if (!err) {
+      axios.put("/api/activities", data).then((res) => {
+        Swal.fire({
+          title: "Actividad modificada",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
       });
-    });
+    }
 
     document.dispatchEvent(new CustomEvent("closeModal"));
   };
@@ -182,7 +192,7 @@ export const ActividadProfe = ({ actividad, alumnos }) => {
               <textarea
                 className="textarea h-24 textarea-bordered resize-none w-full mt-5"
                 placeholder="Descripción de la actividad"
-                value={desc}
+                value={desc ?? ""}
                 onChange={(e) => setDesc(e.target.value)}
               />
             </label>

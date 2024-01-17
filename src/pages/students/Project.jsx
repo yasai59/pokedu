@@ -8,6 +8,38 @@ import { UserContext } from "../../context/UserContext";
 import { RadialChart } from "react-vis";
 import { ActividadAlumno } from "../../components/ActividadAlumno";
 
+const Item = ({ item }) => {
+  const { user } = useContext(UserContext);
+
+  const [nota, setNota] = useState("No avaluado");
+
+  useEffect(() => {
+    axios
+      .get(`/api/grades/item?alumno=${user.id}&item=${item.id}`)
+      .then((res) => {
+        const nota = res.data.msg?.nota ?? "";
+        if (!nota) {
+          setNota("");
+        } else {
+          setNota("Media: " + nota);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  return (
+    <li className="text-lg mb-5">
+      <img
+        src={`/pokemons/${item.foto}`}
+        className="rounded-full inline-block me-2"
+      />
+      {item.nom} - {item.percentatge}%
+      <br />
+      {nota}
+    </li>
+  );
+};
+
 export const Project = () => {
   const { id } = useParams();
 
@@ -22,7 +54,6 @@ export const Project = () => {
   });
 
   const mapAct = (act) => {
-    console.log(act.id);
     return {
       id_actividad: act.id,
       nombre_actividad: act.nom,
@@ -41,7 +72,6 @@ export const Project = () => {
     });
 
     axios.get(`/api/activities/project?projectId=${id}`).then((res) => {
-      console.log(res.data.msg);
       setProject((prev) => ({
         ...prev,
         activeActivity: res.data.msg
@@ -79,9 +109,7 @@ export const Project = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 place-items-center mb-5">
         <ul className="border-2 border-black p-10 rounded-xl mb-10 ">
           {project.items.map((item) => (
-            <li className="text-lg mb-5" key={item.id}>
-              {item.nom} - {item.percentatge}%
-            </li>
+            <Item item={item} key={item.id} />
           ))}
         </ul>
         <RadialChart
@@ -98,18 +126,18 @@ export const Project = () => {
         />
       </div>
       <h2 className="text-5xl font-bold text-center mb-5">Actividad activa</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-y-10 gap-x-0 w-[100%]  mt-[20px] pb-[20px]">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-y-10 gap-x-0 w-[100%]  mt-[20px] pb-[20px]">
         {project.activeActivity.map((act) => {
-          return <ActividadAlumno actividad={act} key={act.id} />;
+          return <ActividadAlumno actividad={act} key={act.id_actividad} />;
         })}
       </div>
-      
+
       <h2 className="text-5xl font-bold text-center mt-5">
         Actividades cerradas
       </h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-y-10 gap-x-0 w-[100%]  mt-[20px] pb-[20px]">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-y-10 gap-x-0 w-[100%]  mt-[20px] pb-[20px]">
         {project.activities.map((act) => {
-          return <ActividadAlumno actividad={act} key={act.id} />;
+          return <ActividadAlumno actividad={act} key={act.id_actividad} />;
         })}
       </div>
     </div>

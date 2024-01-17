@@ -46,14 +46,16 @@ export const Dashboard = () => {
         Mis actividades activas
       </h2>
       <article id="active-activities ">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-y-10 gap-x-0 w-[100%]  mt-[20px] pb-[20px]">
-        {activeActivities.map((activity) => {
-          return (
-            <ActividadAlumno actividad={activity} key={activity.id_actividad} />
-          );
-        })}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-y-10 gap-x-0 w-[100%]  mt-[20px] pb-[20px]">
+          {activeActivities.map((activity) => {
+            return (
+              <ActividadAlumno
+                actividad={activity}
+                key={activity.id_actividad}
+              />
+            );
+          })}
         </div>
-  
       </article>
     </section>
   );
