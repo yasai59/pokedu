@@ -86,7 +86,7 @@ body h1, body h2, body h3, button{
 
 .seto{
   background-color: #5abd8b;
-  background-image: url("assets/bush.png");
+  background-image: url("/assets/bush.png");
   background: cover;
   background-repeat: repeat;
   background-size: 40%;
@@ -97,7 +97,7 @@ body h1, body h2, body h3, button{
 
 .seto2:hover{
   background-color: #5abd8b;
-  background-image: url("assets/bush.png");
+  background-image: url("/assets/bush.png");
   background: cover;
   background-repeat: repeat;
   background-size: 40%;
@@ -108,7 +108,7 @@ body h1, body h2, body h3, button{
 
 .sand{
   background-color: #bdae5a;
-  background-image: url("assets/sand.png");
+  background-image: url("/assets/sand.png");
   background: cover;
   background-repeat: repeat;
   background-size: 10%;
